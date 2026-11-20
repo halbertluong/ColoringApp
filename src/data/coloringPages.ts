@@ -53,6 +53,18 @@ const butterfly: ColoringPage = {
     <!-- Smile -->
     <path d="M438 362 Q450 372 462 362" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M436 385 C375 340 225 305 180 365 C140 420 178 505 260 518 C335 530 420 472 436 425" fill="#FF7F00"/>
+    <path d="M464 385 C525 340 675 305 720 365 C760 420 722 505 640 518 C565 530 480 472 464 425" fill="#FF7F00"/>
+    <path d="M436 510 C390 530 308 552 272 600 C238 645 264 702 318 698 C372 694 428 642 440 585" fill="#FF4500"/>
+    <path d="M464 510 C510 530 592 552 628 600 C662 645 636 702 582 698 C528 694 472 642 460 585" fill="#FF4500"/>
+    <circle cx="268" cy="422" r="48" fill="#FFD700"/>
+    <circle cx="268" cy="422" r="10" fill="#8B4513"/>
+    <circle cx="632" cy="422" r="48" fill="#FFD700"/>
+    <circle cx="632" cy="422" r="10" fill="#8B4513"/>
+    <ellipse cx="450" cy="460" rx="16" ry="100" fill="#6B3A1A"/>
+    <circle cx="450" cy="345" r="26" fill="#6B3A1A"/>
+  </svg>`,
 };
 
 const hotAirBalloon: ColoringPage = {
@@ -110,6 +122,14 @@ const hotAirBalloon: ColoringPage = {
     <path d="M620 155 Q630 148 640 155" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
     <path d="M660 135 Q672 127 684 135" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
     <path d="M700 158 Q710 150 720 158" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="370" rx="230" ry="280" fill="#FF0000"/>
+    <path d="M222 360 Q310 390 450 360 Q590 390 678 360 Q590 320 450 360 Q310 320 222 360Z" fill="#FFD700"/>
+    <path d="M310 90 L268 600 L380 645 L380 95Z" fill="#FF4500"/>
+    <path d="M590 90 L632 600 L520 645 L520 95Z" fill="#4169E1"/>
+    <rect x="375" y="718" width="150" height="105" rx="10" fill="#8B4513"/>
+    <circle cx="140" cy="110" r="52" fill="#FFD700"/>
   </svg>`,
 };
 
@@ -169,6 +189,19 @@ const dinosaur: ColoringPage = {
     <!-- Belly spots -->
     <ellipse cx="420" cy="540" rx="45" ry="32" fill="white" stroke="#111" stroke-width="2.5"/>
     <ellipse cx="420" cy="540" rx="22" ry="16" fill="white" stroke="#111" stroke-width="2"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="430" cy="530" rx="195" ry="145" fill="#7BC67A"/>
+    <path d="M320 415 C308 370 318 325 348 300 L430 292 C462 300 478 348 470 415" fill="#7BC67A"/>
+    <ellipse cx="390" cy="262" rx="90" ry="68" fill="#7BC67A"/>
+    <path d="M315 265 C290 266 272 288 278 313 C284 334 312 338 345 326" fill="#7BC67A"/>
+    <polygon points="460,415 478,368 496,415" fill="#2E8B57"/>
+    <polygon points="495,400 518,345 540,400" fill="#2E8B57"/>
+    <polygon points="530,390 558,328 585,390" fill="#2E8B57"/>
+    <polygon points="562,400 588,345 614,400" fill="#2E8B57"/>
+    <polygon points="592,418 612,375 632,418" fill="#2E8B57"/>
+    <ellipse cx="420" cy="540" rx="45" ry="32" fill="#B8E6A0"/>
+    <ellipse cx="420" cy="540" rx="22" ry="16" fill="#D4F5C0"/>
   </svg>`,
 };
 
@@ -247,6 +280,20 @@ const mermaid: ColoringPage = {
     <circle cx="710" cy="220" r="12" fill="none" stroke="#111" stroke-width="3"/>
     <circle cx="730" cy="168" r="8" fill="none" stroke="#111" stroke-width="2.5"/>
     <circle cx="700" cy="320" r="9" fill="none" stroke="#111" stroke-width="2.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="820" rx="220" ry="55" fill="#888888"/>
+    <path d="M390 780 C360 810 320 840 300 870 C285 895 310 908 330 888 C355 862 380 840 405 820" fill="#00CED1"/>
+    <path d="M510 780 C540 810 580 840 600 870 C615 895 590 908 570 888 C545 862 520 840 495 820" fill="#00CED1"/>
+    <path d="M380 680 Q450 695 520 680 Q545 720 540 770 Q500 790 450 790 Q400 790 360 770 Q355 720 380 680Z" fill="#00CED1"/>
+    <path d="M365 620 Q380 640 380 680 L520 680 Q520 640 535 620 Q500 630 450 630 Q400 630 365 620Z" fill="#00A896"/>
+    <path d="M340 480 C330 520 330 565 365 620 Q400 638 450 640 Q500 638 535 620 C570 565 570 520 560 480 L540 440 Q500 458 450 460 Q400 458 360 440 Z" fill="#FDBCB4"/>
+    <ellipse cx="418" cy="542" rx="35" ry="28" fill="#FF69B4"/>
+    <ellipse cx="482" cy="542" rx="35" ry="28" fill="#FF69B4"/>
+    <rect x="428" y="420" width="44" height="60" rx="8" fill="#FDBCB4"/>
+    <ellipse cx="450" cy="350" rx="85" ry="95" fill="#FDBCB4"/>
+    <path d="M370 295 C330 270 290 275 260 305 C240 330 258 370 285 365 C260 390 255 425 278 440" fill="#DC143C"/>
+    <path d="M530 295 C570 270 610 275 640 305 C660 330 642 370 615 365" fill="#DC143C"/>
   </svg>`,
 };
 
@@ -334,6 +381,23 @@ const castle: ColoringPage = {
     <ellipse cx="680" cy="198" rx="48" ry="34" fill="white" stroke="#111" stroke-width="4"/>
     <ellipse cx="780" cy="200" rx="45" ry="32" fill="white" stroke="#111" stroke-width="4"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M50 860 Q450 800 850 860 L850 900 L50 900 Z" fill="#228B22"/>
+    <rect x="145" y="390" width="130" height="460" fill="#D2B48C"/>
+    <rect x="625" y="390" width="130" height="460" fill="#D2B48C"/>
+    <rect x="230" y="480" width="440" height="370" fill="#D2B48C"/>
+    <rect x="360" y="290" width="180" height="220" fill="#C8A87A"/>
+    <path d="M390 850 L390 680 Q450 640 510 680 L510 850 Z" fill="#4A2C17"/>
+    <path d="M398 360 L398 330 Q420 312 442 330 L442 360 Z" fill="#87CEEB"/>
+    <path d="M458 360 L458 330 Q480 312 502 330 L502 360 Z" fill="#87CEEB"/>
+    <path d="M280 580 L280 550 Q300 532 320 550 L320 580 Z" fill="#87CEEB"/>
+    <path d="M580 580 L580 550 Q600 532 620 550 L620 580 Z" fill="#87CEEB"/>
+    <path d="M170 490 L170 460 Q210 442 250 460 L250 490 Z" fill="#87CEEB"/>
+    <path d="M650 490 L650 460 Q690 442 730 460 L730 490 Z" fill="#87CEEB"/>
+    <path d="M450 175 L498 198 L450 218 Z" fill="#FF0000"/>
+    <path d="M210 285 L252 305 L210 322 Z" fill="#FF0000"/>
+    <path d="M690 285 L648 305 L690 322 Z" fill="#0080FF"/>
+  </svg>`,
 };
 
 const rocketSpace: ColoringPage = {
@@ -401,6 +465,22 @@ const rocketSpace: ColoringPage = {
     <path d="M70 700 Q140 690 210 700" fill="none" stroke="#111" stroke-width="2.5"/>
     <path d="M60 730 Q140 718 220 730" fill="none" stroke="#111" stroke-width="2.5"/>
     <path d="M65 760 Q140 748 215 760" fill="none" stroke="#111" stroke-width="2.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <circle cx="80" cy="80" r="5" fill="#FFD700"/>
+    <circle cx="320" cy="60" r="4" fill="#FFD700"/>
+    <circle cx="620" cy="40" r="5" fill="#FFD700"/>
+    <circle cx="840" cy="140" r="4" fill="#FFD700"/>
+    <circle cx="860" cy="400" r="5" fill="#FFD700"/>
+    <path d="M390 180 C390 100 450 60 450 60 C450 60 510 100 510 180" fill="#FF0000"/>
+    <rect x="390" y="180" width="120" height="300" fill="#FF6B6B"/>
+    <path d="M390 480 L340 580 L390 560" fill="#FF4500"/>
+    <path d="M510 480 L560 580 L510 560" fill="#FF4500"/>
+    <circle cx="450" cy="320" r="45" fill="#87CEEB"/>
+    <path d="M390 560 Q450 580 510 560 L510 620 Q450 640 390 620 Z" fill="#C0C0C0"/>
+    <ellipse cx="140" cy="740" rx="118" ry="88" fill="#FF8C00"/>
+    <path d="M420 620 Q435 660 420 700 Q440 680 450 700 Q460 680 480 700 Q465 660 480 620" fill="#FF8C00"/>
+    <path d="M425 640 Q435 670 450 650 Q465 670 475 640" fill="#FFD700"/>
   </svg>`,
 };
 
@@ -474,6 +554,22 @@ const cat: ColoringPage = {
     <ellipse cx="430" cy="700" rx="100" ry="120" fill="white" stroke="#111" stroke-width="3" stroke-dasharray="0"/>
     <!-- Belly swirl -->
     <path d="M430 640 Q445 658 430 675 Q415 692 430 710" fill="none" stroke="#111" stroke-width="2.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M580 780 C650 740 720 680 730 608 C738 548 700 520 670 548 C645 572 650 620 635 660 C620 700 580 730 555 755" fill="#FF9800"/>
+    <ellipse cx="430" cy="680" rx="220" ry="185" fill="#FF9800"/>
+    <ellipse cx="340" cy="840" rx="70" ry="35" fill="#FFB84D"/>
+    <ellipse cx="520" cy="840" rx="70" ry="35" fill="#FFB84D"/>
+    <ellipse cx="430" cy="390" rx="162" ry="148" fill="#FF9800"/>
+    <path d="M290 298 L252 198 L352 272 Z" fill="#FF9800"/>
+    <path d="M570 298 L608 198 L508 272 Z" fill="#FF9800"/>
+    <path d="M296 286 L272 222 L335 270 Z" fill="#FF69B4"/>
+    <path d="M564 286 L588 222 L525 270 Z" fill="#FF69B4"/>
+    <ellipse cx="375" cy="378" rx="42" ry="38" fill="#00C800"/>
+    <ellipse cx="485" cy="378" rx="42" ry="38" fill="#00C800"/>
+    <ellipse cx="430" cy="700" rx="100" ry="120" fill="#FFD0A0"/>
+    <path d="M340 510 Q430 525 520 510 Q510 545 430 548 Q350 545 340 510 Z" fill="#E55A00"/>
+    <circle cx="430" cy="535" r="14" fill="#FFD700"/>
   </svg>`,
 };
 
@@ -601,6 +697,19 @@ const flowerGarden: ColoringPage = {
     <ellipse cx="769" cy="553" rx="12" ry="24" fill="white" stroke="#111" stroke-width="3" transform="rotate(120 769 553)"/>
     <circle cx="795" cy="580" r="20" fill="white" stroke="#111" stroke-width="2.5"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <circle cx="780" cy="115" r="65" fill="#FFD700"/>
+    <ellipse cx="200" cy="115" rx="75" ry="45" fill="#FFFFFF"/>
+    <ellipse cx="145" cy="132" rx="52" ry="36" fill="#FFFFFF"/>
+    <ellipse cx="262" cy="130" rx="52" ry="36" fill="#FFFFFF"/>
+    <rect x="0" y="720" width="900" height="180" fill="#228B22"/>
+    <path d="M48 780 L48 840 L120 840 L120 780 Q90 768 48 780 Z" fill="#4169E1"/>
+    <path d="M120 810 L160 800 L168 820 L128 830 Z" fill="#8B6914"/>
+    <circle cx="168" cy="810" r="8" fill="#C0A060"/>
+    <ellipse cx="580" cy="138" rx="32" ry="20" fill="#FF69B4"/>
+    <ellipse cx="540" cy="145" rx="25" ry="16" fill="#FF4500"/>
+    <circle cx="562" cy="140" r="6" fill="#FFD700"/>
+  </svg>`,
 };
 
 const fish: ColoringPage = {
@@ -698,6 +807,20 @@ const fish: ColoringPage = {
     <circle cx="820" cy="458" r="15" fill="none" stroke="#111" stroke-width="2.5"/>
     <circle cx="828" cy="418" r="9" fill="none" stroke="#111" stroke-width="2"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M0 800 Q225 768 450 785 Q675 800 900 775 L900 900 L0 900 Z" fill="#C2956B"/>
+    <path d="M365 430 C305 388 270 330 295 272 C318 218 388 205 450 218 C512 205 582 218 605 272 C630 330 595 388 535 430 C522 465 478 488 450 488 C422 488 378 465 365 430Z" fill="#FF6B35"/>
+    <path d="M388 228 Q450 218 512 228 Q520 252 512 278 Q450 268 388 278 Q380 252 388 228Z" fill="#FFFFFF"/>
+    <path d="M328 348 Q450 328 572 348 Q578 378 572 405 Q450 382 328 405 Q322 378 328 348Z" fill="#FFFFFF"/>
+    <path d="M400 218 C388 178 402 148 430 138 C458 148 472 178 460 218" fill="#FF4500"/>
+    <path d="M365 430 C325 450 280 438 258 460 C280 490 330 482 370 468" fill="#FF4500"/>
+    <path d="M535 430 C575 450 620 438 642 460 C620 490 570 482 530 468" fill="#FF4500"/>
+    <circle cx="415" cy="258" r="28" fill="#FFD700"/>
+    <ellipse cx="188" cy="282" rx="68" ry="42" fill="#FFD700"/>
+    <path d="M120 282 C95 258 75 262 68 282 C75 302 95 306 120 282Z" fill="#FFB300"/>
+    <ellipse cx="712" cy="310" rx="68" ry="42" fill="#00BFFF"/>
+    <path d="M780 310 C805 286 825 290 832 310 C825 330 805 334 780 310Z" fill="#0080FF"/>
+  </svg>`,
 };
 
 const unicorn: ColoringPage = {
@@ -782,6 +905,31 @@ const unicorn: ColoringPage = {
     <!-- Heart on cheek -->
     <path d="M450 298 C452 293 458 290 462 296 C466 290 472 293 474 298 C474 308 462 318 462 318 C462 318 450 308 450 298Z" fill="white" stroke="#111" stroke-width="2"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M50 750 Q450 200 850 750" fill="none" stroke="#FF0000" stroke-width="10"/>
+    <path d="M80 750 Q450 245 820 750" fill="none" stroke="#FF8C00" stroke-width="8"/>
+    <path d="M110 750 Q450 290 790 750" fill="none" stroke="#FFD700" stroke-width="8"/>
+    <path d="M140 750 Q450 335 760 750" fill="none" stroke="#00C800" stroke-width="8"/>
+    <path d="M0 830 Q450 800 900 830 L900 900 L0 900 Z" fill="#90EE90"/>
+    <path d="M220 680 C210 630 215 570 240 520 C265 470 310 448 370 440 L600 440 C660 448 700 475 718 525 C735 572 732 635 722 682 C680 712 600 730 450 735 C300 730 245 712 220 682 Z" fill="#FFF5E4"/>
+    <path d="M370 440 C358 398 362 358 382 328 L498 328 C518 358 522 398 510 440" fill="#FFF5E4"/>
+    <ellipse cx="440" cy="285" rx="98" ry="82" fill="#FFF5E4"/>
+    <path d="M532 225 C565 218 590 232 598 255 C575 265 550 250 532 225Z" fill="#FF69B4"/>
+    <path d="M540 255 C578 250 602 268 608 295 C580 305 554 288 540 255Z" fill="#FF1493"/>
+    <path d="M535 292 C572 290 598 310 600 340 C572 350 548 328 535 292Z" fill="#DA70D6"/>
+    <path d="M525 330 C558 332 582 355 580 385 C552 392 530 368 525 330Z" fill="#9370DB"/>
+    <path d="M518 368 C548 372 568 398 562 428 C534 432 515 406 518 368Z" fill="#6A5ACD"/>
+    <path d="M462 210 L445 110 L478 110 Z" fill="#FFD700"/>
+    <rect x="295" y="718" width="68" height="98" rx="12" fill="#FFF5E4"/>
+    <rect x="382" y="722" width="68" height="95" rx="12" fill="#FFF5E4"/>
+    <rect x="478" y="722" width="68" height="95" rx="12" fill="#FFF5E4"/>
+    <rect x="562" y="718" width="68" height="98" rx="12" fill="#FFF5E4"/>
+    <rect x="290" y="808" width="78" height="22" rx="8" fill="#888888"/>
+    <rect x="377" y="808" width="78" height="22" rx="8" fill="#888888"/>
+    <rect x="472" y="808" width="78" height="22" rx="8" fill="#888888"/>
+    <rect x="556" y="808" width="78" height="22" rx="8" fill="#888888"/>
+    <ellipse cx="450" cy="600" rx="105" ry="68" fill="#FFE4C4"/>
+  </svg>`,
 };
 
 const dragon: ColoringPage = {
@@ -861,7 +1009,590 @@ const dragon: ColoringPage = {
     <path d="M598 730 L618 820 L645 820" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M645 820 L632 845 M645 820 L655 845 M645 820 L672 842" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
   </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M0 860 Q450 825 900 860 L900 900 L0 900 Z" fill="#228B22"/>
+    <path d="M255 680 C242 625 248 558 278 505 C310 450 362 422 438 415 C515 422 568 452 595 508 C620 560 622 630 608 685 C565 728 510 750 450 752 C390 750 330 726 255 680 Z" fill="#8B0000"/>
+    <path d="M270 490 C232 450 198 388 210 320 C220 265 265 240 310 258" fill="#8B0000"/>
+    <path d="M630 490 C668 450 702 388 690 320 C680 265 635 240 590 258" fill="#8B0000"/>
+    <path d="M270 490 C195 440 128 400 90 350 C68 322 72 295 95 302 C122 310 160 345 215 388" fill="#C00000"/>
+    <path d="M630 490 C705 440 772 400 810 350 C832 322 828 295 805 302 C778 310 740 345 685 388" fill="#C00000"/>
+    <path d="M270 500 C200 462 138 462 92 490 C128 525 192 522 255 505" fill="#FFD700"/>
+    <path d="M630 500 C700 462 762 462 808 490 C772 525 708 522 645 505" fill="#FFD700"/>
+    <path d="M342 418 C340 370 352 332 378 308 L522 308 C548 332 560 370 558 418" fill="#8B0000"/>
+    <ellipse cx="450" cy="265" rx="98" ry="78" fill="#8B0000"/>
+    <path d="M355 268 C330 265 312 285 318 310 C325 332 352 340 380 325" fill="#A00000"/>
+    <circle cx="378" cy="252" r="18" fill="#FFD700"/>
+    <path d="M462 198 L475 152 L490 198 Z" fill="#FFD700"/>
+    <path d="M342 418 C240 388 148 348 92 290 C72 268 80 245 102 252 C128 260 175 298 232 335 C282 368 325 398 342 418Z" fill="#C00000"/>
+    <path d="M558 418 C660 388 752 348 808 290 C828 268 820 245 798 252 C772 260 725 298 668 335 C618 368 575 398 558 418Z" fill="#C00000"/>
+    <path d="M608 680 C668 648 738 608 778 572 C810 540 808 508 785 515 C760 522 728 558 698 592 C668 625 638 658 618 678Z" fill="#C00000"/>
+    <path d="M390 500 Q440 480 490 490 Q480 540 450 548 Q420 540 390 500Z" fill="#FFD700"/>
+    <ellipse cx="425" cy="560" rx="30" ry="22" fill="#FFD700"/>
+    <ellipse cx="475" cy="560" rx="30" ry="22" fill="#FFD700"/>
+    <ellipse cx="450" cy="600" rx="40" ry="28" fill="#FFD700"/>
+    <path d="M415 630 C405 650 408 668 420 672 L435 672" fill="#FF4500"/>
+    <path d="M430 635 Q450 620 465 635 Q480 652 475 672 L455 672" fill="#FF8C00"/>
+  </svg>`,
 };
+
+
+const cinderella: ColoringPage = {
+  id: 'cinderella',
+  name: 'Cinderella',
+  category: 'Princess',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <ellipse cx="450" cy="200" rx="75" ry="85" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M385 155 C370 120 355 85 345 60 L390 90 L410 55 L430 100 L450 60 L470 100 L490 55 L510 90 L555 60 C545 85 530 120 515 155" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="425" cy="195" rx="14" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="475" cy="195" rx="14" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="427" cy="197" r="8" fill="#111"/>
+    <circle cx="477" cy="197" r="8" fill="#111"/>
+    <circle cx="429" cy="193" r="3" fill="white"/>
+    <circle cx="479" cy="193" r="3" fill="white"/>
+    <path d="M433 225 Q450 238 467 225" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M436 213 Q450 220 464 213" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="415" cy="218" rx="12" ry="7" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <ellipse cx="485" cy="218" rx="12" ry="7" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M390 275 C388 285 395 295 410 300 L490 300 C505 295 512 285 510 275" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M390 275 C390 500 300 680 250 850 L650 850 C600 680 510 500 510 275" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M285 540 Q380 510 390 540 Q380 570 285 580 Z" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M615 540 Q520 510 510 540 Q520 570 615 580 Z" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M250 620 Q350 580 390 600 Q350 640 250 660 Z" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M650 620 Q550 580 510 600 Q550 640 650 660 Z" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M250 850 Q350 820 450 825 Q550 820 650 850" fill="none" stroke="#111" stroke-width="4"/>
+    <ellipse cx="315" cy="860" rx="40" ry="22" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="585" cy="860" rx="40" ry="22" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M408 155 C395 165 388 178 390 192" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M492 155 C505 165 512 178 510 192" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M415 155 C420 148 430 145 440 148 C450 145 460 148 465 155" fill="white" stroke="#111" stroke-width="3"/>
+    <circle cx="435" cy="148" r="5" fill="white" stroke="#111" stroke-width="2.5"/>
+    <circle cx="450" cy="143" r="5" fill="white" stroke="#111" stroke-width="2.5"/>
+    <circle cx="465" cy="148" r="5" fill="white" stroke="#111" stroke-width="2.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="200" rx="75" ry="85" fill="#FDBCB4"/>
+    <path d="M385 155 C370 120 355 85 345 60 L390 90 L410 55 L430 100 L450 60 L470 100 L490 55 L510 90 L555 60 C545 85 530 120 515 155" fill="#FFD700"/>
+    <path d="M390 275 C388 285 395 295 410 300 L490 300 C505 295 512 285 510 275" fill="#FDBCB4"/>
+    <path d="M390 275 C390 500 300 680 250 850 L650 850 C600 680 510 500 510 275" fill="#87CEEB"/>
+    <path d="M285 540 Q380 510 390 540 Q380 570 285 580 Z" fill="#6BB8E0"/>
+    <path d="M615 540 Q520 510 510 540 Q520 570 615 580 Z" fill="#6BB8E0"/>
+    <path d="M250 620 Q350 580 390 600 Q350 640 250 660 Z" fill="#5AADD0"/>
+    <path d="M650 620 Q550 580 510 600 Q550 640 650 660 Z" fill="#5AADD0"/>
+    <ellipse cx="315" cy="860" rx="40" ry="22" fill="#D4AF8C"/>
+    <ellipse cx="585" cy="860" rx="40" ry="22" fill="#D4AF8C"/>
+    <circle cx="435" cy="148" r="5" fill="#FFD700"/>
+    <circle cx="450" cy="143" r="5" fill="#FFD700"/>
+    <circle cx="465" cy="148" r="5" fill="#FFD700"/>
+  </svg>`,
+};
+
+const snowWhite: ColoringPage = {
+  id: 'snow-white',
+  name: 'Snow White',
+  category: 'Princess',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <ellipse cx="450" cy="195" rx="80" ry="88" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M372 148 C358 100 365 60 390 42 L450 55 L510 42 C535 60 542 100 528 148" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M375 148 C355 158 345 178 352 198 L548 198 C555 178 545 158 525 148" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M372 148 C362 162 358 182 365 202" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M528 148 C538 162 542 182 535 202" fill="none" stroke="#111" stroke-width="3"/>
+    <ellipse cx="422" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="478" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="424" cy="194" r="9" fill="#111"/>
+    <circle cx="480" cy="194" r="9" fill="#111"/>
+    <circle cx="426" cy="190" r="3" fill="white"/>
+    <circle cx="482" cy="190" r="3" fill="white"/>
+    <path d="M408 155 L402 140 M418 150 L414 134 M428 148 L426 132" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M472 150 L472 133 M482 152 L484 136 M492 155 L498 140" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M436 220 Q450 232 464 220" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="418" cy="215" rx="12" ry="7" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <ellipse cx="482" cy="215" rx="12" ry="7" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M444 208 Q450 214 456 208" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+    <path d="M390 278 C385 285 388 295 400 302 L500 302 C512 295 515 285 510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M400 302 L375 850 L525 850 L500 302" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M400 302 L310 480 L380 490 L400 450 L400 302" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M500 302 L590 480 L520 490 L500 450 L500 302" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M425 302 L425 850 M450 302 L450 850 M475 302 L475 850" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="8,12"/>
+    <path d="M375 500 Q420 488 450 490 Q480 488 525 500" fill="none" stroke="#111" stroke-width="3"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M390 278 L375 258 Q380 275 400 282" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M510 278 L525 258 Q520 275 500 282" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M390 300 C380 310 365 318 355 310 C352 300 360 288 375 288" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M510 300 C520 310 535 318 545 310 C548 300 540 288 525 288" fill="white" stroke="#111" stroke-width="3"/>
+    <ellipse cx="680" cy="420" rx="42" ry="68" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M650 390 L622 365 L618 390 Z" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M665 358 Q680 345 695 358" fill="none" stroke="#111" stroke-width="3"/>
+    <circle cx="680" cy="380" r="10" fill="white" stroke="#111" stroke-width="3"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="195" rx="80" ry="88" fill="#FDBCB4"/>
+    <path d="M372 148 C358 100 365 60 390 42 L450 55 L510 42 C535 60 542 100 528 148" fill="#1C1C1C"/>
+    <path d="M375 148 C355 158 345 178 352 198 L548 198 C555 178 545 158 525 148" fill="#1C1C1C"/>
+    <path d="M390 278 C385 285 388 295 400 302 L500 302 C512 295 515 285 510 278" fill="#FDBCB4"/>
+    <path d="M400 302 L375 850 L525 850 L500 302" fill="#FFD700"/>
+    <path d="M400 302 L310 480 L380 490 L400 450 L400 302" fill="#4169E1"/>
+    <path d="M500 302 L590 480 L520 490 L500 450 L500 302" fill="#4169E1"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+    <path d="M390 300 C380 310 365 318 355 310 C352 300 360 288 375 288" fill="#FDBCB4"/>
+    <path d="M510 300 C520 310 535 318 545 310 C548 300 540 288 525 288" fill="#FDBCB4"/>
+    <ellipse cx="680" cy="420" rx="42" ry="68" fill="#FF0000"/>
+    <path d="M650 390 L622 365 L618 390 Z" fill="#228B22"/>
+  </svg>`,
+};
+
+const arielDisney: ColoringPage = {
+  id: 'ariel-disney',
+  name: 'Ariel',
+  category: 'Princess',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <path d="M0 700 Q225 665 450 680 Q675 695 900 670 L900 900 L0 900 Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M390 798 C358 828 318 855 295 882 C278 902 302 915 325 898 C352 876 382 848 408 820" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M510 798 C542 828 582 855 605 882 C622 902 598 915 575 898 C548 876 518 848 492 820" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M375 680 Q450 695 525 680 Q548 728 540 785 Q500 802 450 802 Q400 802 360 785 Q352 728 375 680Z" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M385 698 Q415 690 450 698 Q485 690 515 698" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M372 718 Q410 710 450 718 Q490 710 528 718" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M368 740 Q408 732 450 740 Q492 732 532 740" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M368 762 Q408 754 450 762 Q492 754 532 762" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M355 605 Q368 628 372 668 L528 668 Q532 628 545 605 Q505 622 450 622 Q395 622 355 605Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M338 468 C325 508 325 558 355 605 Q395 625 450 627 Q505 625 545 605 C575 558 575 508 562 468 L540 428 Q500 448 450 450 Q400 448 360 428 Z" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="415" cy="535" rx="38" ry="30" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M378 535 Q415 520 452 535" fill="none" stroke="#111" stroke-width="2.5"/>
+    <ellipse cx="485" cy="535" rx="38" ry="30" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M448 535 Q485 520 522 535" fill="none" stroke="#111" stroke-width="2.5"/>
+    <rect x="425" y="408" width="50" height="62" rx="10" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="450" cy="345" rx="88" ry="96" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="416" cy="332" rx="17" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="484" cy="332" rx="17" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="418" cy="334" r="10" fill="#111"/>
+    <circle cx="486" cy="334" r="10" fill="#111"/>
+    <circle cx="421" cy="330" r="3" fill="white"/>
+    <circle cx="489" cy="330" r="3" fill="white"/>
+    <path d="M404 314 L400 303 M412 311 L409 299 M420 310 L420 298" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M468 311 L468 298 M476 313 L479 301 M484 315 L489 304" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M440 360 Q450 370 460 360" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M430 380 Q450 395 470 380" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M368 272 C332 252 295 258 268 288 C245 315 262 352 290 348 C265 372 258 408 282 422" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M532 272 C568 252 605 258 632 288 C655 315 638 352 610 348" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M368 260 C390 225 418 210 450 208 C482 210 510 225 532 260" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M372 268 C358 242 348 215 342 192" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M408 220 C402 198 400 175 405 155" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M450 210 C450 188 452 165 460 148" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M342 468 C320 490 305 518 312 545 C320 560 342 555 352 535" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M558 468 C580 490 595 518 588 545 C580 560 558 555 548 535" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M285 465 L260 420 M272 490 L242 462 M305 448 L290 400" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M618 468 L645 422 M628 492 L658 462 M598 450 L612 402" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M0 700 Q225 665 450 680 Q675 695 900 670 L900 900 L0 900 Z" fill="#C2956B"/>
+    <path d="M390 798 C358 828 318 855 295 882 C278 902 302 915 325 898 C352 876 382 848 408 820" fill="#00CED1"/>
+    <path d="M510 798 C542 828 582 855 605 882 C622 902 598 915 575 898 C548 876 518 848 492 820" fill="#00CED1"/>
+    <path d="M375 680 Q450 695 525 680 Q548 728 540 785 Q500 802 450 802 Q400 802 360 785 Q352 728 375 680Z" fill="#00CED1"/>
+    <path d="M355 605 Q368 628 372 668 L528 668 Q532 628 545 605 Q505 622 450 622 Q395 622 355 605Z" fill="#00A896"/>
+    <path d="M338 468 C325 508 325 558 355 605 Q395 625 450 627 Q505 625 545 605 C575 558 575 508 562 468 L540 428 Q500 448 450 450 Q400 448 360 428 Z" fill="#FDBCB4"/>
+    <ellipse cx="415" cy="535" rx="38" ry="30" fill="#FF69B4"/>
+    <ellipse cx="485" cy="535" rx="38" ry="30" fill="#FF69B4"/>
+    <rect x="425" y="408" width="50" height="62" rx="10" fill="#FDBCB4"/>
+    <ellipse cx="450" cy="345" rx="88" ry="96" fill="#FDBCB4"/>
+    <path d="M368 272 C332 252 295 258 268 288 C245 315 262 352 290 348 C265 372 258 408 282 422" fill="#FF2222"/>
+    <path d="M532 272 C568 252 605 258 632 288 C655 315 638 352 610 348" fill="#FF2222"/>
+    <path d="M368 260 C390 225 418 210 450 208 C482 210 510 225 532 260" fill="#FF2222"/>
+    <path d="M342 468 C320 490 305 518 312 545 C320 560 342 555 352 535" fill="#FDBCB4"/>
+    <path d="M558 468 C580 490 595 518 588 545 C580 560 558 555 548 535" fill="#FDBCB4"/>
+  </svg>`,
+};
+
+const simba: ColoringPage = {
+  id: 'simba',
+  name: 'Simba',
+  category: 'Animals',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <path d="M0 820 Q450 785 900 820 L900 900 L0 900 Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M250 780 L225 848 L202 848" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M202 848 L185 868 M202 848 L215 868 M202 848 L232 865" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M355 795 L348 862 L322 862" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M322 862 L306 882 M322 862 L335 882 M322 862 L350 879" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M545 795 L552 862 L578 862" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M578 862 L564 882 M578 862 L591 882 M578 862 L605 879" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M650 780 L675 848 L698 848" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M698 848 L682 868 M698 848 L711 868 M698 848 L728 865" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M650 625 C715 592 772 568 808 548 C835 532 835 512 815 518 C792 525 758 548 722 568 C688 588 662 608 652 622Z" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="450" cy="618" rx="225" ry="168" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M318 465 C305 418 310 372 335 338 L450 322 L565 338 C590 372 595 418 582 465" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="450" cy="288" rx="105" ry="92" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M352 230 L322 175 L382 215 Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M548 230 L578 175 L518 215 Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M358 228 L335 185 L378 212 Z" fill="white" stroke="#111" stroke-width="2.5"/>
+    <path d="M542 228 L565 185 L522 212 Z" fill="white" stroke="#111" stroke-width="2.5"/>
+    <ellipse cx="415" cy="278" rx="22" ry="24" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="485" cy="278" rx="22" ry="24" fill="white" stroke="#111" stroke-width="4"/>
+    <circle cx="417" cy="280" r="12" fill="#111"/>
+    <circle cx="487" cy="280" r="12" fill="#111"/>
+    <circle cx="420" cy="276" r="4" fill="white"/>
+    <circle cx="490" cy="276" r="4" fill="white"/>
+    <ellipse cx="450" cy="315" rx="52" ry="38" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="450" cy="322" rx="22" ry="12" fill="#111"/>
+    <path d="M415 335 Q450 350 485 335" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M415 350 L395 345 M415 357 L390 355 M415 364 L395 368" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M485 350 L505 345 M485 357 L510 355 M485 364 L505 368" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="450" cy="635" rx="88" ry="62" fill="white" stroke="#111" stroke-width="3" stroke-dasharray="0"/>
+    <path d="M338 465 C315 488 305 515 312 540 C320 558 342 555 352 535" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M562 465 C585 488 595 515 588 540 C580 558 558 555 548 535" fill="white" stroke="#111" stroke-width="4"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M0 820 Q450 785 900 820 L900 900 L0 900 Z" fill="#228B22"/>
+    <path d="M650 625 C715 592 772 568 808 548 C835 532 835 512 815 518 C792 525 758 548 722 568 C688 588 662 608 652 622Z" fill="#CD853F"/>
+    <ellipse cx="450" cy="618" rx="225" ry="168" fill="#F4A460"/>
+    <path d="M318 465 C305 418 310 372 335 338 L450 322 L565 338 C590 372 595 418 582 465" fill="#F4A460"/>
+    <ellipse cx="450" cy="288" rx="105" ry="92" fill="#F4A460"/>
+    <path d="M352 230 L322 175 L382 215 Z" fill="#F4A460"/>
+    <path d="M548 230 L578 175 L518 215 Z" fill="#F4A460"/>
+    <path d="M358 228 L335 185 L378 212 Z" fill="#FF69B4"/>
+    <path d="M542 228 L565 185 L522 212 Z" fill="#FF69B4"/>
+    <ellipse cx="450" cy="315" rx="52" ry="38" fill="#FFD0A0"/>
+    <ellipse cx="450" cy="635" rx="88" ry="62" fill="#FFD0A0"/>
+    <path d="M338 465 C315 488 305 515 312 540 C320 558 342 555 352 535" fill="#F4A460"/>
+    <path d="M562 465 C585 488 595 515 588 540 C580 558 558 555 548 535" fill="#F4A460"/>
+  </svg>`,
+};
+
+const elsa: ColoringPage = {
+  id: 'elsa',
+  name: 'Elsa',
+  category: 'Princess',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <path d="M125 220 L135 198 L145 220 L167 227 L145 234 L135 256 L125 234 L103 227 Z" fill="white" stroke="#111" stroke-width="2"/>
+    <path d="M758 155 L766 135 L774 155 L794 162 L774 169 L766 189 L758 169 L738 162 Z" fill="white" stroke="#111" stroke-width="2"/>
+    <path d="M218 388 L225 370 L232 388 L250 394 L232 400 L225 418 L218 400 L200 394 Z" fill="white" stroke="#111" stroke-width="1.5"/>
+    <path d="M665 285 L672 268 L679 285 L697 292 L679 299 L672 316 L665 299 L647 292 Z" fill="white" stroke="#111" stroke-width="1.5"/>
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M498 128 C515 108 520 85 512 65 C545 85 558 112 548 140 C548 128 530 112 498 128Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M498 128 C510 110 505 88 495 72 C475 55 455 60 450 75 C445 60 425 55 405 72 C395 88 390 110 402 128" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M402 128 C352 115 335 88 352 65 C340 85 358 112 402 128Z" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="422" cy="192" rx="15" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="478" cy="192" rx="15" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="424" cy="194" r="8" fill="#111"/>
+    <circle cx="480" cy="194" r="8" fill="#111"/>
+    <circle cx="427" cy="190" r="3" fill="white"/>
+    <circle cx="483" cy="190" r="3" fill="white"/>
+    <path d="M434 220 Q450 232 466 220" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M444 208 Q450 214 456 208" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+    <path d="M415 215 Q412 212 410 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M485 215 Q488 212 490 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M498 155 C522 162 530 180 522 198" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M402 155 C378 162 370 180 378 198" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M498 158 C530 165 545 185 540 215 C545 212 550 218 548 228 C538 232 532 228 532 220" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M402 158 C370 165 355 185 360 215 C355 212 350 218 352 228 C362 232 368 228 368 220" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M390 278 C385 290 390 302 402 308 L498 308 C510 302 515 290 510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M402 308 L365 850 L535 850 L498 308" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M402 308 L315 495 L382 505 L402 460 L402 308" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M498 308 L585 495 L518 505 L498 460 L498 308" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M385 480 Q450 465 515 480" fill="none" stroke="#111" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <path d="M375 560 Q450 545 525 560" fill="none" stroke="#111" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="#FDBCB4"/>
+    <path d="M498 128 C515 108 520 85 512 65 C545 85 558 112 548 140 C548 128 530 112 498 128Z" fill="#B0E0E6"/>
+    <path d="M498 128 C510 110 505 88 495 72 C475 55 455 60 450 75 C445 60 425 55 405 72 C395 88 390 110 402 128" fill="#B0E0E6"/>
+    <path d="M402 128 C352 115 335 88 352 65 C340 85 358 112 402 128Z" fill="#B0E0E6"/>
+    <path d="M498 158 C530 165 545 185 540 215 C545 212 550 218 548 228 C538 232 532 228 532 220" fill="#B0E0E6"/>
+    <path d="M402 158 C370 165 355 185 360 215 C355 212 350 218 352 228 C362 232 368 228 368 220" fill="#B0E0E6"/>
+    <path d="M390 278 C385 290 390 302 402 308 L498 308 C510 302 515 290 510 278" fill="#FDBCB4"/>
+    <path d="M402 308 L365 850 L535 850 L498 308" fill="#87CEEB"/>
+    <path d="M402 308 L315 495 L382 505 L402 460 L402 308" fill="#ADD8E6"/>
+    <path d="M498 308 L585 495 L518 505 L498 460 L498 308" fill="#ADD8E6"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+  </svg>`,
+};
+
+const moana: ColoringPage = {
+  id: 'moana',
+  name: 'Moana',
+  category: 'Adventure',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <path d="M0 780 Q225 745 450 758 Q675 772 900 745 L900 900 L0 900 Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M338 758 Q388 740 450 748 Q512 740 562 758 Q568 790 562 820 L338 820 Q332 790 338 758Z" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M342 762 Q380 752 450 758 Q520 752 558 762" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M338 785 Q380 778 450 782 Q520 778 562 785" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M338 808 Q388 802 450 804 Q512 802 562 808" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M338 820 L290 850 L338 850Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M562 820 L610 850 L562 850Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M355 605 Q362 628 362 668 L538 668 Q538 628 545 605 Q508 625 450 625 Q392 625 355 605Z" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M338 468 C325 510 325 558 355 605 Q395 630 450 632 Q505 630 545 605 C575 558 575 510 562 468 L542 428 Q505 448 450 450 Q395 448 358 428 Z" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M355 490 Q380 480 395 490 Q388 510 365 515 Z" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M545 490 Q520 480 505 490 Q512 510 535 515 Z" fill="white" stroke="#111" stroke-width="3"/>
+    <rect x="425" y="405" width="50" height="65" rx="10" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="450" cy="338" rx="90" ry="98" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M368 258 C332 240 295 245 268 275 C245 302 262 338 290 335" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M532 258 C568 240 605 245 632 275 C655 302 638 338 610 335" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M368 248 C390 215 418 200 450 198 C482 200 510 215 532 248" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M368 252 C355 230 348 205 350 182" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M405 212 C398 190 395 168 400 148" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M450 200 C450 178 452 155 460 138" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M495 212 C502 190 505 168 500 148" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M532 252 C545 230 552 205 550 182" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="418" cy="325" rx="17" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="482" cy="325" rx="17" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="420" cy="327" r="10" fill="#111"/>
+    <circle cx="484" cy="327" r="10" fill="#111"/>
+    <circle cx="423" cy="323" r="3" fill="white"/>
+    <circle cx="487" cy="323" r="3" fill="white"/>
+    <path d="M436 365 Q450 376 464 365" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M444 352 Q450 358 456 352" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M412 350 Q408 345 406 340" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M488 350 Q492 345 494 340" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M355 468 C332 490 318 518 325 548 C332 568 352 562 362 542" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M545 468 C568 490 582 518 575 548 C568 568 548 562 538 542" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M692 450 L700 350 C700 350 740 320 762 350 L762 440 L720 440Z" fill="white" stroke="#111" stroke-width="4"/>
+    <line x1="700" y1="440" x2="762" y2="440" stroke="#111" stroke-width="4"/>
+    <path d="M762 395 L842 365 L832 420 L762 418Z" fill="white" stroke="#111" stroke-width="3.5"/>
+    <line x1="692" y1="450" x2="692" y2="680" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+    <path d="M692 500 C660 515 648 540 652 568 C660 592 682 598 692 580" fill="none" stroke="#111" stroke-width="3"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M0 780 Q225 745 450 758 Q675 772 900 745 L900 900 L0 900 Z" fill="#1E90FF"/>
+    <path d="M338 758 Q388 740 450 748 Q512 740 562 758 Q568 790 562 820 L338 820 Q332 790 338 758Z" fill="#228B22"/>
+    <path d="M338 820 L290 850 L338 850Z" fill="#228B22"/>
+    <path d="M562 820 L610 850 L562 850Z" fill="#228B22"/>
+    <path d="M355 605 Q362 628 362 668 L538 668 Q538 628 545 605 Q508 625 450 625 Q392 625 355 605Z" fill="#8B4513"/>
+    <path d="M338 468 C325 510 325 558 355 605 Q395 630 450 632 Q505 630 545 605 C575 558 575 510 562 468 L542 428 Q505 448 450 450 Q395 448 358 428 Z" fill="#C68642"/>
+    <path d="M355 490 Q380 480 395 490 Q388 510 365 515 Z" fill="#CC3300"/>
+    <path d="M545 490 Q520 480 505 490 Q512 510 535 515 Z" fill="#CC3300"/>
+    <rect x="425" y="405" width="50" height="65" rx="10" fill="#C68642"/>
+    <ellipse cx="450" cy="338" rx="90" ry="98" fill="#C68642"/>
+    <path d="M368 258 C332 240 295 245 268 275 C245 302 262 338 290 335" fill="#1C1C1C"/>
+    <path d="M532 258 C568 240 605 245 632 275 C655 302 638 338 610 335" fill="#1C1C1C"/>
+    <path d="M368 248 C390 215 418 200 450 198 C482 200 510 215 532 248" fill="#1C1C1C"/>
+    <path d="M355 468 C332 490 318 518 325 548 C332 568 352 562 362 542" fill="#C68642"/>
+    <path d="M545 468 C568 490 582 518 575 548 C568 568 548 562 538 542" fill="#C68642"/>
+    <path d="M692 450 L700 350 C700 350 740 320 762 350 L762 440 L720 440Z" fill="#8B4513"/>
+    <path d="M762 395 L842 365 L832 420 L762 418Z" fill="#F5DEB3"/>
+  </svg>`,
+};
+
+const woody: ColoringPage = {
+  id: 'woody',
+  name: 'Woody',
+  category: 'Adventure',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M372 148 C368 112 380 80 410 60 L450 70 L490 60 C520 80 532 112 528 148" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M352 148 C332 158 318 178 325 200 C332 220 360 228 390 218" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M548 148 C568 158 582 178 575 200 C568 220 540 228 510 218" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M372 155 C365 170 362 185 368 198" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M528 155 C535 170 538 185 532 198" fill="none" stroke="#111" stroke-width="3"/>
+    <ellipse cx="422" cy="192" rx="16" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="478" cy="192" rx="16" ry="18" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="424" cy="194" r="9" fill="#111"/>
+    <circle cx="480" cy="194" r="9" fill="#111"/>
+    <circle cx="427" cy="190" r="3" fill="white"/>
+    <circle cx="483" cy="190" r="3" fill="white"/>
+    <path d="M412 155 L408 142 M422 150 L419 137" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M478 150 L478 137 M488 152 L491 139" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M434 220 Q450 232 466 220" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M444 208 Q450 214 456 208" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+    <path d="M415 215 Q412 212 410 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M485 215 Q488 212 490 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M390 278 C385 292 390 305 405 312 L495 312 C510 305 515 292 510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <rect x="392" y="312" width="116" height="285" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M405 312 L405 598 M450 312 L450 598 M495 312 L495 598" fill="none" stroke="#111" stroke-width="1.5"/>
+    <path d="M392 380 L508 380 M392 448 L508 448 M392 516 L508 516" fill="none" stroke="#111" stroke-width="2.5"/>
+    <rect x="348" y="597" width="100" height="285" rx="8" fill="white" stroke="#111" stroke-width="4.5"/>
+    <rect x="452" y="597" width="100" height="285" rx="8" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M348 680 L448 680 M348 762 L448 762 M452 680 L552 680 M452 762 L552 762" fill="none" stroke="#111" stroke-width="2.5"/>
+    <ellipse cx="380" cy="878" rx="45" ry="18" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="520" cy="878" rx="45" ry="18" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M390 278 L332 318 L342 365 L392 345 L392 312" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M510 278 L568 318 L558 365 L508 345 L508 312" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M342 365 L310 405 L312 455 L342 435" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M558 365 L590 405 L588 455 L558 435" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M310 455 L298 495 L315 505 L332 468" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M590 455 L602 495 L585 505 L568 468" fill="white" stroke="#111" stroke-width="3.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="#FDBCB4"/>
+    <path d="M372 148 C368 112 380 80 410 60 L450 70 L490 60 C520 80 532 112 528 148" fill="#8B4513"/>
+    <path d="M352 148 C332 158 318 178 325 200 C332 220 360 228 390 218" fill="#8B4513"/>
+    <path d="M548 148 C568 158 582 178 575 200 C568 220 540 228 510 218" fill="#8B4513"/>
+    <path d="M390 278 C385 292 390 305 405 312 L495 312 C510 305 515 292 510 278" fill="#FDBCB4"/>
+    <rect x="392" y="312" width="116" height="285" fill="#FFD700"/>
+    <rect x="348" y="597" width="100" height="285" rx="8" fill="#0000AA"/>
+    <rect x="452" y="597" width="100" height="285" rx="8" fill="#0000AA"/>
+    <ellipse cx="380" cy="878" rx="45" ry="18" fill="#8B4513"/>
+    <ellipse cx="520" cy="878" rx="45" ry="18" fill="#8B4513"/>
+    <path d="M390 278 L332 318 L342 365 L392 345 L392 312" fill="#FDBCB4"/>
+    <path d="M510 278 L568 318 L558 365 L508 345 L508 312" fill="#FDBCB4"/>
+    <path d="M342 365 L310 405 L312 455 L342 435" fill="#FDBCB4"/>
+    <path d="M558 365 L590 405 L588 455 L558 435" fill="#FDBCB4"/>
+    <path d="M310 455 L298 495 L315 505 L332 468" fill="#FDBCB4"/>
+    <path d="M590 455 L602 495 L585 505 L568 468" fill="#FDBCB4"/>
+  </svg>`,
+};
+
+const buzz: ColoringPage = {
+  id: 'buzz',
+  name: 'Buzz Lightyear',
+  category: 'Adventure',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <ellipse cx="450" cy="195" rx="80" ry="85" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M390 148 L390 115 L410 108 L430 115 L450 105 L470 115 L490 108 L510 115 L510 148" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="422" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="478" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="424" cy="194" r="9" fill="#111"/>
+    <circle cx="480" cy="194" r="9" fill="#111"/>
+    <circle cx="427" cy="190" r="3" fill="white"/>
+    <circle cx="483" cy="190" r="3" fill="white"/>
+    <path d="M434 220 Q450 232 466 220" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M408 155 C405 148 410 142 420 140" fill="none" stroke="#111" stroke-width="2.5"/>
+    <path d="M492 155 C495 148 490 142 480 140" fill="none" stroke="#111" stroke-width="2.5"/>
+    <path d="M390 278 L390 310 L510 310 L510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M390 278 C388 290 392 302 402 308 L498 308 C508 302 512 290 510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="450" cy="345" rx="92" ry="62" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="450" cy="345" rx="58" ry="38" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="420" cy="338" r="8" fill="white" stroke="#111" stroke-width="3"/>
+    <circle cx="450" cy="332" r="8" fill="white" stroke="#111" stroke-width="3"/>
+    <circle cx="480" cy="338" r="8" fill="white" stroke="#111" stroke-width="3"/>
+    <rect x="390" y="405" width="120" height="295" rx="10" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M390 450 L510 450 M390 495 L510 495 M390 540 L510 540 M390 585 L510 585 M390 630 L510 630" fill="none" stroke="#111" stroke-width="2"/>
+    <rect x="348" y="698" width="102" height="195" rx="8" fill="white" stroke="#111" stroke-width="4.5"/>
+    <rect x="450" y="698" width="102" height="195" rx="8" fill="white" stroke="#111" stroke-width="4.5"/>
+    <ellipse cx="390" cy="890" rx="52" ry="20" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="510" cy="890" rx="52" ry="20" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M390 405 L305 468 L318 548 L390 522 L390 462" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M510 405 L595 468 L582 548 L510 522 L510 462" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M318 548 L298 628 L312 638 L332 568" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M582 548 L602 628 L588 638 L568 568" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M220 435 C175 408 160 375 175 348 C188 322 215 320 232 335 C245 322 272 318 282 342 C292 365 278 400 248 418" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M165 350 C148 328 155 305 175 300 C192 296 208 310 205 330" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M680 435 C725 408 740 375 725 348 C712 322 685 320 668 335 C655 322 628 318 618 342 C608 365 622 400 652 418" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M735 350 C752 328 745 305 725 300 C708 296 692 310 695 330" fill="white" stroke="#111" stroke-width="3.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="195" rx="80" ry="85" fill="#FDBCB4"/>
+    <path d="M390 148 L390 115 L410 108 L430 115 L450 105 L470 115 L490 108 L510 115 L510 148" fill="#228B22"/>
+    <path d="M390 278 L390 310 L510 310 L510 278" fill="#FFFFFF"/>
+    <path d="M390 278 C388 290 392 302 402 308 L498 308 C508 302 512 290 510 278" fill="#FFFFFF"/>
+    <ellipse cx="450" cy="345" rx="92" ry="62" fill="#228B22"/>
+    <ellipse cx="450" cy="345" rx="58" ry="38" fill="#87CEEB"/>
+    <rect x="390" y="405" width="120" height="295" rx="10" fill="#FFFFFF"/>
+    <rect x="348" y="698" width="102" height="195" rx="8" fill="#7B2ABB"/>
+    <rect x="450" y="698" width="102" height="195" rx="8" fill="#7B2ABB"/>
+    <ellipse cx="390" cy="890" rx="52" ry="20" fill="#FFFFFF"/>
+    <ellipse cx="510" cy="890" rx="52" ry="20" fill="#FFFFFF"/>
+    <path d="M390 405 L305 468 L318 548 L390 522 L390 462" fill="#7B2ABB"/>
+    <path d="M510 405 L595 468 L582 548 L510 522 L510 462" fill="#7B2ABB"/>
+    <path d="M318 548 L298 628 L312 638 L332 568" fill="#7B2ABB"/>
+    <path d="M582 548 L602 628 L588 638 L568 568" fill="#7B2ABB"/>
+    <path d="M220 435 C175 408 160 375 175 348 C188 322 215 320 232 335 C245 322 272 318 282 342 C292 365 278 400 248 418" fill="#C8C8C8"/>
+    <path d="M680 435 C725 408 740 375 725 348 C712 322 685 320 668 335 C655 322 628 318 618 342 C608 365 622 400 652 418" fill="#C8C8C8"/>
+  </svg>`,
+};
+
+const belle: ColoringPage = {
+  id: 'belle',
+  name: 'Belle',
+  category: 'Princess',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M375 158 C358 125 362 90 388 68 L450 78 L512 68 C538 90 542 125 525 158" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M530 160 C548 168 558 185 552 205" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M370 160 C352 168 342 185 348 205" fill="none" stroke="#111" stroke-width="3"/>
+    <ellipse cx="422" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="478" cy="192" rx="16" ry="19" fill="white" stroke="#111" stroke-width="3.5"/>
+    <circle cx="424" cy="194" r="9" fill="#111"/>
+    <circle cx="480" cy="194" r="9" fill="#111"/>
+    <circle cx="427" cy="190" r="3" fill="white"/>
+    <circle cx="483" cy="190" r="3" fill="white"/>
+    <path d="M434 220 Q450 232 466 220" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M444 208 Q450 214 456 208" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+    <path d="M412 215 Q409 212 408 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M488 215 Q491 212 492 208" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M390 278 C385 290 390 305 405 312 L495 312 C510 305 515 290 510 278" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M405 312 L335 850 L565 850 L495 312" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M405 312 L318 492 L382 505 L405 460 L405 312" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M495 312 L582 492 L518 505 L495 460 L495 312" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M385 480 Q450 468 515 480" fill="none" stroke="#111" stroke-width="2.5"/>
+    <path d="M372 540 Q450 525 528 540" fill="none" stroke="#111" stroke-width="2.5"/>
+    <path d="M358 608 Q450 592 542 608" fill="none" stroke="#111" stroke-width="2.5"/>
+    <path d="M348 680 Q450 662 552 680" fill="none" stroke="#111" stroke-width="2.5"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M390 278 L332 320 L342 368 L390 345 L390 312" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M510 278 L568 320 L558 368 L510 345 L510 312" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="680" cy="425" rx="45" ry="85" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M668 348 Q680 338 692 348" fill="none" stroke="#111" stroke-width="3"/>
+    <ellipse cx="680" cy="398" rx="22" ry="38" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M668 342 L652 318 C648 308 655 298 665 302 L680 318 L695 302 C705 298 712 308 708 318 L692 342" fill="white" stroke="#111" stroke-width="3.5"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <ellipse cx="450" cy="195" rx="78" ry="85" fill="#FDBCB4"/>
+    <path d="M375 158 C358 125 362 90 388 68 L450 78 L512 68 C538 90 542 125 525 158" fill="#8B4513"/>
+    <path d="M390 278 C385 290 390 305 405 312 L495 312 C510 305 515 290 510 278" fill="#FDBCB4"/>
+    <path d="M405 312 L335 850 L565 850 L495 312" fill="#FFD700"/>
+    <path d="M405 312 L318 492 L382 505 L405 460 L405 312" fill="#C8A000"/>
+    <path d="M495 312 L582 492 L518 505 L495 460 L495 312" fill="#C8A000"/>
+    <ellipse cx="315" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+    <ellipse cx="585" cy="855" rx="45" ry="20" fill="#FDBCB4"/>
+    <path d="M390 278 L332 320 L342 368 L390 345 L390 312" fill="#FDBCB4"/>
+    <path d="M510 278 L568 320 L558 368 L510 345 L510 312" fill="#FDBCB4"/>
+    <ellipse cx="680" cy="425" rx="45" ry="85" fill="#228B22"/>
+    <ellipse cx="680" cy="398" rx="22" ry="38" fill="#FF0000"/>
+    <path d="M668 342 L652 318 C648 308 655 298 665 302 L680 318 L695 302 C705 298 712 308 708 318 L692 342" fill="#228B22"/>
+  </svg>`,
+};
+
+const genie: ColoringPage = {
+  id: 'genie',
+  name: 'Genie',
+  category: 'Fantasy',
+  svgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"><rect width="900" height="900" fill="white"/>
+    <path d="M450 740 C428 755 408 775 400 800 C392 825 410 835 428 820 C440 810 450 790 450 790 C450 790 460 810 472 820 C490 835 508 825 500 800 C492 775 472 755 450 740Z" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M450 740 C415 720 385 695 358 668 C330 640 318 605 328 580 C338 555 365 548 390 560" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M450 740 C485 720 515 695 542 668 C570 640 582 605 572 580 C562 555 535 548 510 560" fill="white" stroke="#111" stroke-width="5"/>
+    <ellipse cx="450" cy="488" rx="142" ry="175" fill="white" stroke="#111" stroke-width="5"/>
+    <path d="M318 408 C285 388 265 358 272 332 C280 308 305 302 325 315 C320 302 325 285 340 282 C358 278 372 295 368 315" fill="white" stroke="#111" stroke-width="4"/>
+    <path d="M582 408 C615 388 635 358 628 332 C620 308 595 302 575 315 C580 302 575 285 560 282 C542 278 528 295 532 315" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="390" cy="420" rx="28" ry="30" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="510" cy="420" rx="28" ry="30" fill="white" stroke="#111" stroke-width="4"/>
+    <circle cx="392" cy="422" r="16" fill="#111"/>
+    <circle cx="512" cy="422" r="16" fill="#111"/>
+    <circle cx="396" cy="416" r="5" fill="white"/>
+    <circle cx="516" cy="416" r="5" fill="white"/>
+    <path d="M368 395 Q390 385 412 395" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M488 395 Q510 385 532 395" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="450" cy="468" rx="58" ry="42" fill="white" stroke="#111" stroke-width="4"/>
+    <ellipse cx="450" cy="478" rx="28" ry="16" fill="#111"/>
+    <path d="M415 490 Q450 505 485 490" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M405 468 Q400 462 398 455" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M495 468 Q500 462 502 455" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M368 348 C348 325 350 298 368 282 C382 268 400 272 408 288 C395 268 398 245 415 238 C432 230 448 245 448 262 C448 245 462 230 480 238 C498 245 502 268 490 288 C498 272 518 268 530 282 C548 298 550 325 532 348" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M450 338 L450 285 M425 345 L412 298 M475 345 L488 298" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="150" cy="688" rx="88" ry="52" fill="white" stroke="#111" stroke-width="4.5"/>
+    <path d="M62 688 Q150 650 238 688 Q150 726 62 688Z" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M238 688 L258 658 L268 688" fill="white" stroke="#111" stroke-width="3.5"/>
+    <path d="M128 688 C98 648 72 605 68 568 C65 540 80 528 95 538" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="128" cy="665" r="10" fill="white" stroke="#111" stroke-width="3"/>
+    <path d="M318 408 L298 388 M318 440 L292 452 M318 470 L302 490" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <path d="M582 408 L602 388 M582 440 L608 452 M582 470 L598 490" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  </svg>`,
+  colorSvgData: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+    <path d="M450 740 C428 755 408 775 400 800 C392 825 410 835 428 820 C440 810 450 790 450 790 C450 790 460 810 472 820 C490 835 508 825 500 800 C492 775 472 755 450 740Z" fill="#1E90FF"/>
+    <path d="M450 740 C415 720 385 695 358 668 C330 640 318 605 328 580 C338 555 365 548 390 560" fill="#1E90FF"/>
+    <path d="M450 740 C485 720 515 695 542 668 C570 640 582 605 572 580 C562 555 535 548 510 560" fill="#1E90FF"/>
+    <ellipse cx="450" cy="488" rx="142" ry="175" fill="#1E90FF"/>
+    <path d="M318 408 C285 388 265 358 272 332 C280 308 305 302 325 315 C320 302 325 285 340 282 C358 278 372 295 368 315" fill="#1E90FF"/>
+    <path d="M582 408 C615 388 635 358 628 332 C620 308 595 302 575 315 C580 302 575 285 560 282 C542 278 528 295 532 315" fill="#1E90FF"/>
+    <path d="M368 348 C348 325 350 298 368 282 C382 268 400 272 408 288 C395 268 398 245 415 238 C432 230 448 245 448 262 C448 245 462 230 480 238 C498 245 502 268 490 288 C498 272 518 268 530 282 C548 298 550 325 532 348" fill="#CC0000"/>
+    <ellipse cx="450" cy="468" rx="58" ry="42" fill="#87CEEB"/>
+    <ellipse cx="150" cy="688" rx="88" ry="52" fill="#FFD700"/>
+    <path d="M238 688 L258 658 L268 688" fill="#C8A000"/>
+  </svg>`,
+};
+
 
 export const COLORING_PAGES: ColoringPage[] = [
   butterfly,
@@ -874,4 +1605,15 @@ export const COLORING_PAGES: ColoringPage[] = [
   flowerGarden,
   fish,
   hotAirBalloon,
+  dinosaur,
+  cinderella,
+  snowWhite,
+  arielDisney,
+  simba,
+  elsa,
+  moana,
+  woody,
+  buzz,
+  belle,
+  genie,
 ];

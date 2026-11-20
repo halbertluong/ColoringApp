@@ -2,8 +2,7 @@ import { useState, useRef } from 'react';
 import { ToolType, ColoringPage } from './types';
 import { COLORING_PAGES } from './data/coloringPages';
 import { ColoringCanvas, ColoringCanvasHandle } from './components/ColoringCanvas';
-import { LeftToolbar } from './components/LeftToolbar';
-import { RightToolbar } from './components/RightToolbar';
+import { BottomBar } from './components/BottomBar';
 import { TopBar } from './components/TopBar';
 import { ImageGallery } from './components/ImageGallery';
 import './App.css';
@@ -14,7 +13,6 @@ export default function App() {
   const [brushSize, setBrushSize] = useState(14);
   const [showGallery, setShowGallery] = useState(false);
   const [currentPage, setCurrentPage] = useState<ColoringPage>(COLORING_PAGES[0]);
-  const [customPages, setCustomPages] = useState<ColoringPage[]>([]);
 
   const canvasRef = useRef<ColoringCanvasHandle>(null);
 
@@ -31,54 +29,41 @@ export default function App() {
       category: 'Custom',
       svgData: '',
     };
-    setCustomPages((prev) => [...prev, page]);
     setCurrentPage(page);
     setShowGallery(false);
     canvasRef.current?.loadImageUrl(url);
   };
 
   return (
-    <div className="app">
-      {/* Top bar */}
+    <div className="app-new">
       <TopBar
+        pageTitle={currentPage.name}
+        onGallery={() => setShowGallery(true)}
         onUndo={() => canvasRef.current?.undo()}
         onRedo={() => canvasRef.current?.redo()}
         onClear={() => canvasRef.current?.clearCanvas()}
         onSave={() => canvasRef.current?.saveImage()}
-        onGallery={() => setShowGallery(true)}
-        onResetZoom={() => canvasRef.current?.resetZoom()}
       />
 
-      {/* Main area */}
-      <div className="main-area">
-        <LeftToolbar
+      <div className="canvas-area-new">
+        <ColoringCanvas
+          ref={canvasRef}
           tool={tool}
+          color={color}
           brushSize={brushSize}
-          onToolChange={setTool}
-          onBrushSizeChange={setBrushSize}
+          initialPage={currentPage}
         />
-
-        {/* Canvas wrapper */}
-        <div className="canvas-area">
-          <div className="page-label">
-            {currentPage.name}
-            {currentPage.category && (
-              <span className="page-cat"> · {currentPage.category}</span>
-            )}
-          </div>
-          <ColoringCanvas
-            ref={canvasRef}
-            tool={tool}
-            color={color}
-            brushSize={brushSize}
-            initialPage={currentPage}
-          />
-        </div>
-
-        <RightToolbar color={color} onColorChange={setColor} />
       </div>
 
-      {/* Gallery modal */}
+      <BottomBar
+        tool={tool}
+        brushSize={brushSize}
+        color={color}
+        onToolChange={setTool}
+        onBrushSizeChange={setBrushSize}
+        onColorChange={setColor}
+      />
+
       {showGallery && (
         <ImageGallery
           currentPageId={currentPage.id}
@@ -87,9 +72,6 @@ export default function App() {
           onClose={() => setShowGallery(false)}
         />
       )}
-
-      {/* Prevent iOS bounce scroll */}
-      <div style={{ display: 'none' }}>{customPages.length}</div>
     </div>
   );
 }

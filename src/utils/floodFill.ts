@@ -48,7 +48,6 @@ export function floodFill(
 
   const outlineData = outlineCtx.getImageData(0, 0, width, height).data;
 
-  // Don't fill if click is on an outline pixel
   if (isDark(outlineData, (sy * width + sx) * 4)) return;
 
   const colorImageData = colorCtx.getImageData(0, 0, width, height);
@@ -63,7 +62,6 @@ export function floodFill(
     colorData[startIdx + 3],
   ];
 
-  // Already this color
   if (colorsMatch(colorData, startIdx, fill, 2)) return;
 
   const visited = new Uint8Array(width * height);
@@ -79,12 +77,9 @@ export function floodFill(
     visited[pos] = 1;
 
     const idx4 = pos * 4;
-    // Stop at outline pixels
     if (isDark(outlineData, idx4)) continue;
-    // Stop if color doesn't match start color
     if (!colorsMatch(colorData, idx4, target, tolerance)) continue;
 
-    // Paint this pixel
     colorData[idx4] = fill[0];
     colorData[idx4 + 1] = fill[1];
     colorData[idx4 + 2] = fill[2];
@@ -94,4 +89,49 @@ export function floodFill(
   }
 
   colorCtx.putImageData(colorImageData, 0, 0);
+}
+
+export function getRegionMask(
+  outlineCtx: CanvasRenderingContext2D,
+  x: number,
+  y: number
+): Uint8Array {
+  const W = outlineCtx.canvas.width;
+  const H = outlineCtx.canvas.height;
+  const mask = new Uint8Array(W * H);
+  const outlineData = outlineCtx.getImageData(0, 0, W, H).data;
+
+  const sx = Math.round(x);
+  const sy = Math.round(y);
+  if (sx < 0 || sx >= W || sy < 0 || sy >= H) return mask;
+
+  const startPos = sy * W + sx;
+  if (isDark(outlineData, startPos * 4)) return mask;
+
+  const stack: number[] = [startPos];
+  const visited = new Uint8Array(W * H);
+  visited[startPos] = 1;
+
+  while (stack.length) {
+    const pos = stack.pop()!;
+    mask[pos] = 1;
+    const px = pos % W;
+    const py = Math.floor(pos / W);
+
+    const neighbors = [
+      px > 0 ? pos - 1 : -1,
+      px < W - 1 ? pos + 1 : -1,
+      py > 0 ? pos - W : -1,
+      py < H - 1 ? pos + W : -1,
+    ];
+
+    for (const npos of neighbors) {
+      if (npos < 0) continue;
+      if (visited[npos]) continue;
+      visited[npos] = 1;
+      if (!isDark(outlineData, npos * 4)) stack.push(npos);
+    }
+  }
+
+  return mask;
 }
