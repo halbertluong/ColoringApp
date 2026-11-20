@@ -1,45 +1,42 @@
 interface Props {
+  pageTitle: string;
+  onGallery: () => void;
   onUndo: () => void;
   onRedo: () => void;
   onClear: () => void;
   onSave: () => void;
-  onGallery: () => void;
-  onResetZoom: () => void;
 }
 
-export function TopBar({ onUndo, onRedo, onClear, onSave, onGallery, onResetZoom }: Props) {
+export function TopBar({ pageTitle, onGallery, onUndo, onRedo, onClear, onSave }: Props) {
   return (
-    <div className="topbar">
-      {/* Left: Gallery button */}
-      <div className="topbar-left">
-        <button className="topbar-btn topbar-btn-gallery" onClick={onGallery} title="Choose Coloring Page">
-          <span>🖼️</span>
-          <span className="topbar-label">Pages</span>
+    <div className="topbar-new">
+      <div className="topbar-left-new">
+        <button className="topbar-btn-new topbar-btn-pages" onClick={onGallery}>
+          <span>🎨</span>
+          <span className="topbar-btn-label">Pages</span>
         </button>
       </div>
 
-      {/* Center: App title */}
-      <div className="topbar-center">
-        <span className="app-title">✦ Color Studio ✦</span>
+      <div className="topbar-center-new">
+        <span className="topbar-title-new">{pageTitle}</span>
       </div>
 
-      {/* Right: actions */}
-      <div className="topbar-right">
-        <button className="topbar-btn" onClick={onResetZoom} title="Reset Zoom">
-          <span>🔍</span>
-        </button>
-        <button className="topbar-btn" onClick={onUndo} title="Undo">
+      <div className="topbar-right-new">
+        <button className="topbar-btn-new" onClick={onUndo} title="Undo">
           <span>↩️</span>
+          <span className="topbar-btn-label">Undo</span>
         </button>
-        <button className="topbar-btn" onClick={onRedo} title="Redo">
+        <button className="topbar-btn-new" onClick={onRedo} title="Redo">
           <span>↪️</span>
+          <span className="topbar-btn-label">Redo</span>
         </button>
-        <button className="topbar-btn topbar-btn-clear" onClick={onClear} title="Clear">
+        <button className="topbar-btn-new topbar-btn-clear" onClick={onClear} title="Clear">
           <span>🗑️</span>
+          <span className="topbar-btn-label">Clear</span>
         </button>
-        <button className="topbar-btn topbar-btn-save" onClick={onSave} title="Save Image">
-          <span>✅</span>
-          <span className="topbar-label">Save</span>
+        <button className="topbar-btn-new topbar-btn-save" onClick={onSave} title="Save">
+          <span>💾</span>
+          <span className="topbar-btn-label">Save</span>
         </button>
       </div>
     </div>

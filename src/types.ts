@@ -6,13 +6,16 @@ export type ToolType =
   | 'brush'
   | 'watercolor'
   | 'glitter'
-  | 'eraser';
+  | 'eraser'
+  | 'autoColor'
+  | 'smartBrush';
 
 export interface ColoringPage {
   id: string;
   name: string;
   category: string;
   svgData: string;
+  colorSvgData?: string;
 }
 
 export interface Point {
@@ -25,7 +28,6 @@ export interface DrawingTool {
   id: ToolType;
   label: string;
   icon: string;
-  cursor: string;
 }
 
 export interface AppState {

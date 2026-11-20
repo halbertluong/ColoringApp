@@ -22,10 +22,8 @@ export interface ColoringCanvasHandle {
 export const ColoringCanvas = forwardRef<ColoringCanvasHandle, Props>(
   ({ tool, color, brushSize, initialPage }, ref) => {
     const displayCanvasRef = useRef<HTMLCanvasElement>(null);
-
     const engine = useDrawingEngine(displayCanvasRef, { tool, color, brushSize });
 
-    // Expose methods to parent
     useImperativeHandle(ref, () => ({
       undo: engine.undo,
       redo: engine.redo,
@@ -36,12 +34,10 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, Props>(
       resetZoom: engine.resetZoom,
     }));
 
-    // Load initial page on mount
     useEffect(() => {
       engine.loadPage(initialPage);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    // Cursor styles per tool
     const cursorMap: Record<ToolType, string> = {
       bucket: 'cell',
       pencil: 'crosshair',
@@ -51,6 +47,8 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, Props>(
       watercolor: 'crosshair',
       glitter: 'crosshair',
       eraser: 'cell',
+      autoColor: 'cell',
+      smartBrush: 'crosshair',
     };
 
     return (

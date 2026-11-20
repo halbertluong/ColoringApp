@@ -1,6 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { ToolType, Point, ColoringPage } from '../types';
-import { floodFill } from '../utils/floodFill';
+import { floodFill, getRegionMask } from '../utils/floodFill';
 
 const CANVAS_W = 900;
 const CANVAS_H = 900;
@@ -16,16 +16,17 @@ export function useDrawingEngine(
   displayCanvasRef: React.RefObject<HTMLCanvasElement | null>,
   opts: DrawingEngineOptions
 ) {
-  // Offscreen canvases for layered rendering
   const outlineCanvas = useRef<HTMLCanvasElement | null>(null);
   const colorCanvas = useRef<HTMLCanvasElement | null>(null);
+  const referenceCanvas = useRef<HTMLCanvasElement | null>(null);
+  const maskCanvas = useRef<HTMLCanvasElement | null>(null);
+  const strokeTempCanvas = useRef<HTMLCanvasElement | null>(null);
+  const smartBrushMask = useRef<Uint8Array | null>(null);
 
-  // Drawing state (refs so no re-renders during drawing)
   const isDrawing = useRef(false);
   const lastPoint = useRef<Point | null>(null);
-  const activePenDown = useRef(false); // tracks if a pen (stylus) is currently down
+  const activePenDown = useRef(false);
 
-  // Zoom / pan state
   const scale = useRef(1);
   const panX = useRef(0);
   const panY = useRef(0);
@@ -33,15 +34,12 @@ export function useDrawingEngine(
   const lastPinchMid = useRef<{ x: number; y: number } | null>(null);
   const activePointers = useRef<Map<number, { x: number; y: number }>>(new Map());
 
-  // History for undo/redo
   const history = useRef<ImageData[]>([]);
   const historyIndex = useRef(-1);
 
-  // Current options via ref (avoids stale closures in event handlers)
   const optsRef = useRef(opts);
   optsRef.current = opts;
 
-  // ─── Offscreen canvas init ──────────────────────────────────────────────────
   const getOutlineCtx = useCallback(() => {
     if (!outlineCanvas.current) {
       outlineCanvas.current = document.createElement('canvas');
@@ -60,25 +58,47 @@ export function useDrawingEngine(
     return colorCanvas.current.getContext('2d', { willReadFrequently: true })!;
   }, []);
 
-  // ─── Composite: draw color layer first, then outline on top ─────────────────
+  const getReferenceCtx = useCallback(() => {
+    if (!referenceCanvas.current) {
+      referenceCanvas.current = document.createElement('canvas');
+      referenceCanvas.current.width = CANVAS_W;
+      referenceCanvas.current.height = CANVAS_H;
+    }
+    return referenceCanvas.current.getContext('2d', { willReadFrequently: true })!;
+  }, []);
+
+  const getMaskCtx = useCallback(() => {
+    if (!maskCanvas.current) {
+      maskCanvas.current = document.createElement('canvas');
+      maskCanvas.current.width = CANVAS_W;
+      maskCanvas.current.height = CANVAS_H;
+    }
+    return maskCanvas.current.getContext('2d', { willReadFrequently: true })!;
+  }, []);
+
+  const getStrokeTempCtx = useCallback(() => {
+    if (!strokeTempCanvas.current) {
+      strokeTempCanvas.current = document.createElement('canvas');
+      strokeTempCanvas.current.width = CANVAS_W;
+      strokeTempCanvas.current.height = CANVAS_H;
+    }
+    return strokeTempCanvas.current.getContext('2d', { willReadFrequently: true })!;
+  }, []);
+
   const composite = useCallback(() => {
     const display = displayCanvasRef.current;
     if (!display || !colorCanvas.current || !outlineCanvas.current) return;
     const ctx = display.getContext('2d')!;
     ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
-    // Color layer
     ctx.drawImage(colorCanvas.current, 0, 0);
-    // Outline on top with multiply blending so black stays black over any color
     ctx.globalCompositeOperation = 'multiply';
     ctx.drawImage(outlineCanvas.current, 0, 0);
     ctx.globalCompositeOperation = 'source-over';
   }, [displayCanvasRef]);
 
-  // ─── History ─────────────────────────────────────────────────────────────────
   const saveHistory = useCallback(() => {
     const colorCtx = getColorCtx();
     const snap = colorCtx.getImageData(0, 0, CANVAS_W, CANVAS_H);
-    // Truncate forward history
     history.current = history.current.slice(0, historyIndex.current + 1);
     history.current.push(snap);
     if (history.current.length > MAX_HISTORY) history.current.shift();
@@ -101,18 +121,18 @@ export function useDrawingEngine(
     composite();
   }, [getColorCtx, composite]);
 
-  // ─── Load coloring page ───────────────────────────────────────────────────
   const loadPage = useCallback(
     (page: ColoringPage) => {
       const outlineCtx = getOutlineCtx();
       const colorCtx = getColorCtx();
+      const refCtx = getReferenceCtx();
 
-      // Clear color layer
       colorCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
       colorCtx.fillStyle = 'white';
       colorCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
 
-      // Load SVG into outline canvas
+      refCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
       const blob = new Blob([page.svgData], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
       const img = new Image();
@@ -120,18 +140,27 @@ export function useDrawingEngine(
         outlineCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
         outlineCtx.drawImage(img, 0, 0, CANVAS_W, CANVAS_H);
         URL.revokeObjectURL(url);
-        // Clear history for new page
         history.current = [];
         historyIndex.current = -1;
         saveHistory();
         composite();
       };
       img.src = url;
+
+      if (page.colorSvgData) {
+        const cblob = new Blob([page.colorSvgData], { type: 'image/svg+xml' });
+        const curl = URL.createObjectURL(cblob);
+        const cimg = new Image();
+        cimg.onload = () => {
+          refCtx.drawImage(cimg, 0, 0, CANVAS_W, CANVAS_H);
+          URL.revokeObjectURL(curl);
+        };
+        cimg.src = curl;
+      }
     },
-    [getOutlineCtx, getColorCtx, composite, saveHistory]
+    [getOutlineCtx, getColorCtx, getReferenceCtx, composite, saveHistory]
   );
 
-  // Load a user-uploaded image (already a data URL or object URL)
   const loadImageUrl = useCallback(
     (imageUrl: string) => {
       const outlineCtx = getOutlineCtx();
@@ -143,7 +172,6 @@ export function useDrawingEngine(
 
       const img = new Image();
       img.onload = () => {
-        // Draw the image scaled to fit on a white background
         outlineCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
         outlineCtx.fillStyle = 'white';
         outlineCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
@@ -166,12 +194,10 @@ export function useDrawingEngine(
     [getOutlineCtx, getColorCtx, composite, saveHistory]
   );
 
-  // ─── Coordinate conversion ────────────────────────────────────────────────
   const toCanvasPoint = useCallback(
     (clientX: number, clientY: number, pressure = 1): Point => {
       const display = displayCanvasRef.current!;
       const rect = display.getBoundingClientRect();
-      // The canvas element is visually scaled by CSS; getBoundingClientRect accounts for that
       const scaleX = CANVAS_W / rect.width;
       const scaleY = CANVAS_H / rect.height;
       return {
@@ -183,14 +209,36 @@ export function useDrawingEngine(
     [displayCanvasRef]
   );
 
-  // ─── Brush rendering ──────────────────────────────────────────────────────
   const drawStroke = useCallback(
     (from: Point, to: Point) => {
       const { tool, color, brushSize } = optsRef.current;
       const colorCtx = getColorCtx();
-
       const pressure = (from.pressure + to.pressure) / 2;
       const size = brushSize * (tool === 'pencil' ? 0.6 : 1) * (0.5 + pressure * 0.5);
+
+      if (tool === 'smartBrush' && maskCanvas.current) {
+        const tempCtx = getStrokeTempCtx();
+        tempCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+        tempCtx.lineCap = 'round';
+        tempCtx.lineJoin = 'round';
+        tempCtx.strokeStyle = color;
+        tempCtx.globalAlpha = 0.9 * pressure;
+        tempCtx.lineWidth = size * 1.2;
+        tempCtx.shadowBlur = size * 0.3;
+        tempCtx.shadowColor = color;
+        tempCtx.beginPath();
+        tempCtx.moveTo(from.x, from.y);
+        tempCtx.lineTo(to.x, to.y);
+        tempCtx.stroke();
+        tempCtx.shadowBlur = 0;
+        tempCtx.globalCompositeOperation = 'destination-in';
+        tempCtx.drawImage(maskCanvas.current, 0, 0);
+        tempCtx.globalCompositeOperation = 'source-over';
+        colorCtx.drawImage(strokeTempCanvas.current!, 0, 0);
+        colorCtx.globalAlpha = 1;
+        composite();
+        return;
+      }
 
       colorCtx.lineCap = 'round';
       colorCtx.lineJoin = 'round';
@@ -208,7 +256,6 @@ export function useDrawingEngine(
           break;
         }
         case 'crayon': {
-          // Multiple offset lines for texture
           colorCtx.globalAlpha = 0.55 * pressure;
           colorCtx.lineWidth = size;
           for (let i = 0; i < 4; i++) {
@@ -296,10 +343,9 @@ export function useDrawingEngine(
       colorCtx.globalAlpha = 1;
       composite();
     },
-    [getColorCtx, composite]
+    [getColorCtx, getStrokeTempCtx, composite]
   );
 
-  // ─── Clear / Save ─────────────────────────────────────────────────────────
   const clearCanvas = useCallback(() => {
     const colorCtx = getColorCtx();
     colorCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
@@ -318,7 +364,6 @@ export function useDrawingEngine(
     link.click();
   }, [displayCanvasRef]);
 
-  // ─── Pointer event handlers ───────────────────────────────────────────────
   const handlePointerDown = useCallback(
     (e: PointerEvent) => {
       e.preventDefault();
@@ -328,13 +373,11 @@ export function useDrawingEngine(
 
       activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-      // Two-finger gesture overrides drawing
       if (activePointers.current.size >= 2) {
         isDrawing.current = false;
         return;
       }
 
-      // Palm rejection: ignore broad touch if stylus already drawing
       if (e.pointerType === 'touch' && activePenDown.current) return;
       if (e.pointerType === 'pen') activePenDown.current = true;
 
@@ -350,11 +393,53 @@ export function useDrawingEngine(
         return;
       }
 
+      if (tool === 'autoColor') {
+        const refCtx = getReferenceCtx();
+        const outlineCtx = getOutlineCtx();
+        const colorCtx = getColorCtx();
+        const pixel = refCtx.getImageData(Math.floor(pt.x), Math.floor(pt.y), 1, 1).data;
+        const a = pixel[3];
+        if (a < 20) return;
+        const r = pixel[0], g = pixel[1], b = pixel[2];
+        // Skip if pixel is too white (background)
+        if (r > 240 && g > 240 && b > 240) return;
+        const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+        saveHistory();
+        floodFill(colorCtx, outlineCtx, pt.x, pt.y, hex);
+        composite();
+        return;
+      }
+
+      if (tool === 'smartBrush') {
+        const outlineCtx = getOutlineCtx();
+        const mask = getRegionMask(outlineCtx, pt.x, pt.y);
+        smartBrushMask.current = mask;
+
+        // Build maskCanvas: white where mask=1, transparent elsewhere
+        const maskCtx = getMaskCtx();
+        maskCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+        const imgData = maskCtx.createImageData(CANVAS_W, CANVAS_H);
+        for (let i = 0; i < mask.length; i++) {
+          if (mask[i]) {
+            imgData.data[i * 4] = 255;
+            imgData.data[i * 4 + 1] = 255;
+            imgData.data[i * 4 + 2] = 255;
+            imgData.data[i * 4 + 3] = 255;
+          }
+        }
+        maskCtx.putImageData(imgData, 0, 0);
+
+        isDrawing.current = true;
+        lastPoint.current = pt;
+        saveHistory();
+        return;
+      }
+
       isDrawing.current = true;
       lastPoint.current = pt;
       saveHistory();
     },
-    [displayCanvasRef, toCanvasPoint, getOutlineCtx, getColorCtx, composite, saveHistory]
+    [displayCanvasRef, toCanvasPoint, getOutlineCtx, getColorCtx, getReferenceCtx, getMaskCtx, composite, saveHistory]
   );
 
   const handlePointerMove = useCallback(
@@ -363,7 +448,6 @@ export function useDrawingEngine(
       activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
       if (activePointers.current.size === 2) {
-        // Pinch zoom / pan
         const pts = Array.from(activePointers.current.values());
         const dx = pts[1].x - pts[0].x;
         const dy = pts[1].y - pts[0].y;
@@ -373,11 +457,8 @@ export function useDrawingEngine(
         if (lastPinchDist.current !== null && lastPinchMid.current !== null) {
           const scaleChange = dist / lastPinchDist.current;
           const newScale = Math.min(4, Math.max(0.5, scale.current * scaleChange));
-
-          // Pan follows midpoint movement
           panX.current += mid.x - lastPinchMid.current.x;
           panY.current += mid.y - lastPinchMid.current.y;
-
           scale.current = newScale;
           applyTransform();
         }
@@ -393,7 +474,6 @@ export function useDrawingEngine(
       if (!isDrawing.current || !lastPoint.current) return;
       if (e.pointerType === 'touch' && activePenDown.current) return;
 
-      // Use getCoalescedEvents for high-fidelity Apple Pencil input
       const events = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
       for (const ev of events) {
         const pt = toCanvasPoint(ev.clientX, ev.clientY, ev.pressure);
@@ -414,11 +494,11 @@ export function useDrawingEngine(
       if (e.pointerType === 'pen') activePenDown.current = false;
       isDrawing.current = false;
       lastPoint.current = null;
+      smartBrushMask.current = null;
     },
     []
   );
 
-  // ─── Transform helpers ────────────────────────────────────────────────────
   function applyTransform() {
     const display = displayCanvasRef.current;
     if (!display) return;
@@ -434,7 +514,6 @@ export function useDrawingEngine(
     applyTransform();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ─── Attach events ────────────────────────────────────────────────────────
   useEffect(() => {
     const canvas = displayCanvasRef.current;
     if (!canvas) return;
@@ -446,7 +525,6 @@ export function useDrawingEngine(
     canvas.addEventListener('pointercancel', handlePointerUp, options);
     canvas.addEventListener('pointerleave', handlePointerUp, options);
 
-    // Prevent context menu on long-press (iPad)
     const noCtx = (e: Event) => e.preventDefault();
     canvas.addEventListener('contextmenu', noCtx);
 
