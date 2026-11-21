@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { ToolType, ColoringPage } from './types';
+import { ToolType, GlitterType, ColoringPage } from './types';
 import { COLORING_PAGES } from './data/coloringPages';
 import { ColoringCanvas, ColoringCanvasHandle } from './components/ColoringCanvas';
 import { BottomBar } from './components/BottomBar';
@@ -11,6 +11,8 @@ export default function App() {
   const [tool, setTool] = useState<ToolType>('bucket');
   const [color, setColor] = useState('#FF0000');
   const [brushSize, setBrushSize] = useState(14);
+  const [autoColorMode, setAutoColorMode] = useState(false);
+  const [glitterType, setGlitterType] = useState<GlitterType>('normal');
   const [showGallery, setShowGallery] = useState(false);
   const [currentPage, setCurrentPage] = useState<ColoringPage>(COLORING_PAGES[0]);
 
@@ -51,6 +53,8 @@ export default function App() {
           tool={tool}
           color={color}
           brushSize={brushSize}
+          autoColorMode={autoColorMode}
+          glitterType={glitterType}
           initialPage={currentPage}
         />
       </div>
@@ -59,9 +63,13 @@ export default function App() {
         tool={tool}
         brushSize={brushSize}
         color={color}
+        autoColorMode={autoColorMode}
+        glitterType={glitterType}
         onToolChange={setTool}
         onBrushSizeChange={setBrushSize}
         onColorChange={setColor}
+        onAutoColorModeChange={setAutoColorMode}
+        onGlitterTypeChange={setGlitterType}
       />
 
       {showGallery && (

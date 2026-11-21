@@ -1,11 +1,13 @@
 import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
-import { ToolType, ColoringPage } from '../types';
+import { ToolType, GlitterType, ColoringPage } from '../types';
 import { useDrawingEngine } from '../hooks/useDrawingEngine';
 
 interface Props {
   tool: ToolType;
   color: string;
   brushSize: number;
+  autoColorMode: boolean;
+  glitterType: GlitterType;
   initialPage: ColoringPage;
 }
 
@@ -20,9 +22,9 @@ export interface ColoringCanvasHandle {
 }
 
 export const ColoringCanvas = forwardRef<ColoringCanvasHandle, Props>(
-  ({ tool, color, brushSize, initialPage }, ref) => {
+  ({ tool, color, brushSize, autoColorMode, glitterType, initialPage }, ref) => {
     const displayCanvasRef = useRef<HTMLCanvasElement>(null);
-    const engine = useDrawingEngine(displayCanvasRef, { tool, color, brushSize });
+    const engine = useDrawingEngine(displayCanvasRef, { tool, color, brushSize, autoColorMode, glitterType });
 
     useImperativeHandle(ref, () => ({
       undo: engine.undo,
@@ -47,7 +49,6 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, Props>(
       watercolor: 'crosshair',
       glitter: 'crosshair',
       eraser: 'cell',
-      autoColor: 'cell',
       smartBrush: 'crosshair',
     };
 

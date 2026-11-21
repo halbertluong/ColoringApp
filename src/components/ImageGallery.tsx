@@ -9,6 +9,20 @@ interface Props {
   onClose: () => void;
 }
 
+function isSvgData(s: string) {
+  return s.trim().startsWith('<');
+}
+
+function getThumbnailSrc(page: ColoringPage): string {
+  const src = page.colorSvgData || page.svgData;
+  if (!src) return '';
+  if (isSvgData(src)) {
+    const blob = new Blob([src], { type: 'image/svg+xml' });
+    return URL.createObjectURL(blob);
+  }
+  return src; // already a URL (./images/..., http://, data:...)
+}
+
 export function ImageGallery({ currentPageId, onSelect, onUpload, onClose }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [urlInput, setUrlInput] = useState('');
@@ -41,19 +55,16 @@ export function ImageGallery({ currentPageId, onSelect, onUpload, onClose }: Pro
     img.src = urlInput.trim();
   };
 
-  const getThumbnailUrl = (page: ColoringPage) => {
-    const svgData = page.colorSvgData || page.svgData;
-    const blob = new Blob([svgData], { type: 'image/svg+xml' });
-    return URL.createObjectURL(blob);
-  };
-
   const categoryColors: Record<string, string> = {
-    Nature: '#4CAF50',
-    Fantasy: '#9C27B0',
-    Adventure: '#FF5722',
-    Princess: '#E91E63',
-    Animals: '#FF9800',
-    Custom: '#2196F3',
+    Frozen: '#90CAF9',
+    Classic: '#FFB300',
+    Princesses: '#F48FB1',
+    'Lion King': '#FFA726',
+    'Toy Story': '#7986CB',
+    Nemo: '#29B6F6',
+    Disney: '#66BB6A',
+    Cars: '#EF5350',
+    Custom: '#78909C',
   };
 
   return (
@@ -80,19 +91,32 @@ export function ImageGallery({ currentPageId, onSelect, onUpload, onClose }: Pro
         {/* Page grid */}
         <div className="gallery-grid-new">
           {filtered.map((page) => {
-            const thumbUrl = getThumbnailUrl(page);
+            const src = getThumbnailSrc(page);
             return (
               <button
                 key={page.id}
                 className={`gallery-card-new ${currentPageId === page.id ? 'gallery-card-selected' : ''}`}
                 onClick={() => onSelect(page)}
               >
-                <img
-                  className="gallery-thumb-new"
-                  src={thumbUrl}
-                  alt={page.name}
-                  onLoad={() => URL.revokeObjectURL(thumbUrl)}
-                />
+                {src ? (
+                  <img
+                    className="gallery-thumb-new"
+                    src={src}
+                    alt={page.name}
+                    crossOrigin="anonymous"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                      const parent = (e.target as HTMLImageElement).parentElement;
+                      if (parent) {
+                        const ph = parent.querySelector('.gallery-thumb-placeholder');
+                        if (ph) (ph as HTMLElement).style.display = 'flex';
+                      }
+                    }}
+                  />
+                ) : null}
+                <div className="gallery-thumb-placeholder" style={{ display: src ? 'none' : 'flex' }}>
+                  <span>🖼️</span>
+                </div>
                 <span
                   className="gallery-category-badge"
                   style={{ background: categoryColors[page.category] || '#888' }}
@@ -132,7 +156,7 @@ export function ImageGallery({ currentPageId, onSelect, onUpload, onClose }: Pro
             {urlError && <p className="url-error-new">{urlError}</p>}
           </div>
           <p className="upload-hint-new">
-            Tip: Search for coloring pages online and paste the URL here, or upload a photo to color!
+            Upload a photo from your device or paste a coloring page URL to color it!
           </p>
         </div>
       </div>

@@ -7,8 +7,9 @@ export type ToolType =
   | 'watercolor'
   | 'glitter'
   | 'eraser'
-  | 'autoColor'
   | 'smartBrush';
+
+export type GlitterType = 'normal' | 'rainbow' | 'gold' | 'silver' | 'roseGold' | 'stardust' | 'purple';
 
 export interface ColoringPage {
   id: string;

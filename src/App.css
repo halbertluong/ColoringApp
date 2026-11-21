@@ -498,6 +498,17 @@ html, body, #root {
   background: #F8F9FF;
 }
 
+.gallery-thumb-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: #F0F4FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
 .gallery-category-badge {
   position: absolute;
   top: 8px;
@@ -603,6 +614,92 @@ html, body, #root {
   color: #6366F1;
   line-height: 1.6;
   opacity: 0.85;
+}
+
+/* ── Magic fill button ──────────────────────────────────────── */
+.magic-fill-btn {
+  border-color: rgba(139, 92, 246, 0.3);
+  background: #FAF5FF;
+}
+
+.magic-fill-active {
+  background: linear-gradient(135deg, #DDD6FE, #C4B5FD) !important;
+  border-color: #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.35) !important;
+}
+
+.magic-fill-active .tool-label-new {
+  color: #5B21B6;
+}
+
+/* ── Glitter sub-options row ─────────────────────────────────── */
+.glitter-row {
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.glitter-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #6366F1;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.glitter-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.glitter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.glitter-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+  height: 48px;
+  padding: 5px 6px 3px;
+  background: #F8F9FF;
+  border: 1.5px solid rgba(99,102,241,0.15);
+  border-radius: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  gap: 2px;
+  transition: transform 80ms, background 80ms;
+}
+
+.glitter-btn:active {
+  transform: scale(0.9);
+}
+
+.glitter-btn-active {
+  background: linear-gradient(135deg, #FDE68A, #FCD34D);
+  border-color: #F59E0B;
+  box-shadow: 0 3px 10px rgba(245,158,11,0.3);
+  transform: scale(1.06);
+}
+
+.glitter-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.glitter-label-text {
+  font-size: 8px;
+  font-weight: 700;
+  color: #6366F1;
+  letter-spacing: 0.3px;
+}
+
+.glitter-btn-active .glitter-label-text {
+  color: #92400E;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */

@@ -1,5 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react';
-import { ToolType, Point, ColoringPage } from '../types';
+import { ToolType, GlitterType, Point, ColoringPage } from '../types';
 import { floodFill, getRegionMask } from '../utils/floodFill';
 
 const CANVAS_W = 900;
@@ -10,6 +10,39 @@ interface DrawingEngineOptions {
   tool: ToolType;
   color: string;
   brushSize: number;
+  autoColorMode: boolean;
+  glitterType: GlitterType;
+}
+
+function getGlitterColor(type: GlitterType, baseColor: string, x: number, y: number): string {
+  switch (type) {
+    case 'rainbow': {
+      const hue = ((x * 0.4 + y * 0.3) % 360 + Math.random() * 40) % 360;
+      return `hsl(${hue}, 100%, 55%)`;
+    }
+    case 'gold': {
+      const golds = ['#FFD700', '#FFA500', '#FFB347', '#FFCC00', '#DAA520'];
+      return golds[Math.floor(Math.random() * golds.length)];
+    }
+    case 'silver': {
+      const silvers = ['#C0C0C0', '#D8D8D8', '#E8E8E8', '#A8A8A8', '#FFFFFF'];
+      return silvers[Math.floor(Math.random() * silvers.length)];
+    }
+    case 'roseGold': {
+      const rg = ['#FFB6C1', '#FF9BA5', '#FFD4B3', '#E8A0A0', '#FFB0A0'];
+      return rg[Math.floor(Math.random() * rg.length)];
+    }
+    case 'stardust': {
+      const sd = ['#FFFFFF', '#F0F0FF', '#E8E8FF', '#FFFFF0', '#F8F0FF'];
+      return sd[Math.floor(Math.random() * sd.length)];
+    }
+    case 'purple': {
+      const purps = ['#9B59B6', '#8E44AD', '#CF9FFF', '#BB88FF', '#AA66FF'];
+      return purps[Math.floor(Math.random() * purps.length)];
+    }
+    default:
+      return baseColor;
+  }
 }
 
 export function useDrawingEngine(
@@ -133,29 +166,63 @@ export function useDrawingEngine(
 
       refCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
 
-      const blob = new Blob([page.svgData], { type: 'image/svg+xml' });
-      const url = URL.createObjectURL(blob);
-      const img = new Image();
-      img.onload = () => {
-        outlineCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
-        outlineCtx.drawImage(img, 0, 0, CANVAS_W, CANVAS_H);
-        URL.revokeObjectURL(url);
-        history.current = [];
-        historyIndex.current = -1;
-        saveHistory();
-        composite();
+      const loadOutlineFromUrl = (url: string, isBlobUrl: boolean) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          outlineCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+          outlineCtx.fillStyle = 'white';
+          outlineCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+          const aspect = img.width / img.height;
+          let dw = CANVAS_W, dh = CANVAS_H;
+          if (aspect > 1) dh = CANVAS_W / aspect;
+          else dw = CANVAS_H * aspect;
+          const dx = (CANVAS_W - dw) / 2;
+          const dy = (CANVAS_H - dh) / 2;
+          outlineCtx.drawImage(img, dx, dy, dw, dh);
+          if (isBlobUrl) URL.revokeObjectURL(url);
+          history.current = [];
+          historyIndex.current = -1;
+          saveHistory();
+          composite();
+        };
+        img.onerror = () => {
+          if (isBlobUrl) URL.revokeObjectURL(url);
+        };
+        img.src = url;
       };
-      img.src = url;
+
+      if (page.svgData.startsWith('http') || page.svgData.startsWith('/') || page.svgData.startsWith('data:') || page.svgData.startsWith('./')) {
+        loadOutlineFromUrl(page.svgData, false);
+      } else if (page.svgData) {
+        const blob = new Blob([page.svgData], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        loadOutlineFromUrl(url, true);
+      }
 
       if (page.colorSvgData) {
-        const cblob = new Blob([page.colorSvgData], { type: 'image/svg+xml' });
-        const curl = URL.createObjectURL(cblob);
-        const cimg = new Image();
-        cimg.onload = () => {
-          refCtx.drawImage(cimg, 0, 0, CANVAS_W, CANVAS_H);
-          URL.revokeObjectURL(curl);
+        const loadRef = (src: string, isBlob: boolean) => {
+          const cimg = new Image();
+          cimg.crossOrigin = 'anonymous';
+          cimg.onload = () => {
+            const aspect = cimg.width / cimg.height;
+            let dw = CANVAS_W, dh = CANVAS_H;
+            if (aspect > 1) dh = CANVAS_W / aspect;
+            else dw = CANVAS_H * aspect;
+            const dx = (CANVAS_W - dw) / 2;
+            const dy = (CANVAS_H - dh) / 2;
+            refCtx.drawImage(cimg, dx, dy, dw, dh);
+            if (isBlob) URL.revokeObjectURL(src);
+          };
+          cimg.src = src;
         };
-        cimg.src = curl;
+
+        if (page.colorSvgData.startsWith('http') || page.colorSvgData.startsWith('/') || page.colorSvgData.startsWith('./') || page.colorSvgData.startsWith('data:')) {
+          loadRef(page.colorSvgData, false);
+        } else {
+          const cblob = new Blob([page.colorSvgData], { type: 'image/svg+xml' });
+          loadRef(URL.createObjectURL(cblob), true);
+        }
       }
     },
     [getOutlineCtx, getColorCtx, getReferenceCtx, composite, saveHistory]
@@ -171,6 +238,7 @@ export function useDrawingEngine(
       colorCtx.fillRect(0, 0, CANVAS_W, CANVAS_H);
 
       const img = new Image();
+      img.crossOrigin = 'anonymous';
       img.onload = () => {
         outlineCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
         outlineCtx.fillStyle = 'white';
@@ -195,15 +263,17 @@ export function useDrawingEngine(
   );
 
   const toCanvasPoint = useCallback(
-    (clientX: number, clientY: number, pressure = 1): Point => {
+    (clientX: number, clientY: number, rawPressure = 1): Point => {
       const display = displayCanvasRef.current!;
       const rect = display.getBoundingClientRect();
       const scaleX = CANVAS_W / rect.width;
       const scaleY = CANVAS_H / rect.height;
+      // Mouse reports 0 or 0.5; Apple Pencil gives real 0–1 pressure
+      const pressure = rawPressure < 0.05 ? 0.65 : Math.max(0.25, rawPressure);
       return {
         x: (clientX - rect.left) * scaleX,
         y: (clientY - rect.top) * scaleY,
-        pressure: Math.max(0.01, pressure),
+        pressure,
       };
     },
     [displayCanvasRef]
@@ -211,10 +281,11 @@ export function useDrawingEngine(
 
   const drawStroke = useCallback(
     (from: Point, to: Point) => {
-      const { tool, color, brushSize } = optsRef.current;
+      const { tool, color, brushSize, glitterType } = optsRef.current;
       const colorCtx = getColorCtx();
       const pressure = (from.pressure + to.pressure) / 2;
-      const size = brushSize * (tool === 'pencil' ? 0.6 : 1) * (0.5 + pressure * 0.5);
+      // brushSize dominates; tiny pressure modifier for feel
+      const size = brushSize * (0.88 + pressure * 0.12);
 
       if (tool === 'smartBrush' && maskCanvas.current) {
         const tempCtx = getStrokeTempCtx();
@@ -222,7 +293,7 @@ export function useDrawingEngine(
         tempCtx.lineCap = 'round';
         tempCtx.lineJoin = 'round';
         tempCtx.strokeStyle = color;
-        tempCtx.globalAlpha = 0.9 * pressure;
+        tempCtx.globalAlpha = 0.9;
         tempCtx.lineWidth = size * 1.2;
         tempCtx.shadowBlur = size * 0.3;
         tempCtx.shadowColor = color;
@@ -246,7 +317,8 @@ export function useDrawingEngine(
 
       switch (tool) {
         case 'pencil': {
-          colorCtx.globalAlpha = 0.85 * pressure;
+          // Solid, clean pencil line — alpha doesn't multiply pressure so it's always visible
+          colorCtx.globalAlpha = 0.82;
           colorCtx.lineWidth = size;
           colorCtx.shadowBlur = 0;
           colorCtx.beginPath();
@@ -256,11 +328,12 @@ export function useDrawingEngine(
           break;
         }
         case 'crayon': {
-          colorCtx.globalAlpha = 0.55 * pressure;
+          // Textured crayon: multiple offset strokes build wax feel
+          colorCtx.globalAlpha = 0.65;
           colorCtx.lineWidth = size;
           for (let i = 0; i < 4; i++) {
-            const ox = (Math.random() - 0.5) * size * 0.6;
-            const oy = (Math.random() - 0.5) * size * 0.6;
+            const ox = (Math.random() - 0.5) * size * 0.5;
+            const oy = (Math.random() - 0.5) * size * 0.5;
             colorCtx.beginPath();
             colorCtx.moveTo(from.x + ox, from.y + oy);
             colorCtx.lineTo(to.x + ox, to.y + oy);
@@ -269,7 +342,8 @@ export function useDrawingEngine(
           break;
         }
         case 'marker': {
-          colorCtx.globalAlpha = 0.75;
+          // Bold, nearly opaque marker
+          colorCtx.globalAlpha = 0.92;
           colorCtx.lineWidth = size * 1.4;
           colorCtx.shadowBlur = 0;
           colorCtx.beginPath();
@@ -279,8 +353,9 @@ export function useDrawingEngine(
           break;
         }
         case 'brush': {
-          colorCtx.globalAlpha = 0.6 * pressure;
-          colorCtx.lineWidth = size * (1 + pressure * 0.5);
+          // Brush: pressure affects opacity for a painterly feel
+          colorCtx.globalAlpha = 0.5 + pressure * 0.4;
+          colorCtx.lineWidth = size * (1 + pressure * 0.4);
           colorCtx.shadowBlur = size * 0.5;
           colorCtx.shadowColor = color;
           colorCtx.beginPath();
@@ -291,9 +366,10 @@ export function useDrawingEngine(
           break;
         }
         case 'watercolor': {
-          colorCtx.globalAlpha = 0.12 * pressure;
-          colorCtx.lineWidth = size * 2.2;
-          colorCtx.shadowBlur = size;
+          // Soft layering — each pass adds a little; build up with multiple strokes
+          colorCtx.globalAlpha = 0.07 + pressure * 0.05;
+          colorCtx.lineWidth = size * 2.5;
+          colorCtx.shadowBlur = size * 1.2;
           colorCtx.shadowColor = color;
           colorCtx.beginPath();
           colorCtx.moveTo(from.x, from.y);
@@ -304,20 +380,20 @@ export function useDrawingEngine(
         }
         case 'glitter': {
           const dist = Math.hypot(to.x - from.x, to.y - from.y);
-          const steps = Math.max(1, Math.floor(dist / 6));
+          const steps = Math.max(1, Math.floor(dist / 5));
           for (let i = 0; i <= steps; i++) {
             const t = i / steps;
             const cx = from.x + (to.x - from.x) * t;
             const cy = from.y + (to.y - from.y) * t;
-            const count = Math.ceil(size * 0.8);
+            const count = Math.ceil(size * 1.0);
             for (let j = 0; j < count; j++) {
               const angle = Math.random() * Math.PI * 2;
               const r = Math.random() * size;
               const px = cx + Math.cos(angle) * r;
               const py = cy + Math.sin(angle) * r;
-              const dotSize = 1 + Math.random() * 2.5;
-              colorCtx.globalAlpha = Math.random() * 0.9 * pressure;
-              colorCtx.fillStyle = color;
+              const dotSize = 1 + Math.random() * 3;
+              colorCtx.globalAlpha = 0.5 + Math.random() * 0.5;
+              colorCtx.fillStyle = getGlitterColor(glitterType, color, px, py);
               colorCtx.beginPath();
               colorCtx.arc(px, py, dotSize, 0, Math.PI * 2);
               colorCtx.fill();
@@ -382,30 +458,28 @@ export function useDrawingEngine(
       if (e.pointerType === 'pen') activePenDown.current = true;
 
       const pt = toCanvasPoint(e.clientX, e.clientY, e.pressure);
-      const { tool, color } = optsRef.current;
+      const { tool, color, autoColorMode } = optsRef.current;
 
       if (tool === 'bucket') {
         const outlineCtx = getOutlineCtx();
         const colorCtx = getColorCtx();
         saveHistory();
-        floodFill(colorCtx, outlineCtx, pt.x, pt.y, color);
-        composite();
-        return;
-      }
 
-      if (tool === 'autoColor') {
-        const refCtx = getReferenceCtx();
-        const outlineCtx = getOutlineCtx();
-        const colorCtx = getColorCtx();
-        const pixel = refCtx.getImageData(Math.floor(pt.x), Math.floor(pt.y), 1, 1).data;
-        const a = pixel[3];
-        if (a < 20) return;
-        const r = pixel[0], g = pixel[1], b = pixel[2];
-        // Skip if pixel is too white (background)
-        if (r > 240 && g > 240 && b > 240) return;
-        const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
-        saveHistory();
-        floodFill(colorCtx, outlineCtx, pt.x, pt.y, hex);
+        if (autoColorMode) {
+          const refCtx = getReferenceCtx();
+          const pixel = refCtx.getImageData(Math.floor(pt.x), Math.floor(pt.y), 1, 1).data;
+          const a = pixel[3];
+          const r = pixel[0], g = pixel[1], b = pixel[2];
+          if (a >= 20 && !(r > 240 && g > 240 && b > 240)) {
+            const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+            floodFill(colorCtx, outlineCtx, pt.x, pt.y, hex);
+          } else {
+            floodFill(colorCtx, outlineCtx, pt.x, pt.y, color);
+          }
+        } else {
+          floodFill(colorCtx, outlineCtx, pt.x, pt.y, color);
+        }
+
         composite();
         return;
       }
@@ -415,7 +489,6 @@ export function useDrawingEngine(
         const mask = getRegionMask(outlineCtx, pt.x, pt.y);
         smartBrushMask.current = mask;
 
-        // Build maskCanvas: white where mask=1, transparent elsewhere
         const maskCtx = getMaskCtx();
         maskCtx.clearRect(0, 0, CANVAS_W, CANVAS_H);
         const imgData = maskCtx.createImageData(CANVAS_W, CANVAS_H);
