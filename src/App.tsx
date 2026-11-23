@@ -21,7 +21,11 @@ export default function App() {
   const handleSelectPage = (page: ColoringPage) => {
     setCurrentPage(page);
     setShowGallery(false);
-    canvasRef.current?.loadPage(page);
+    if (page.imageUrl) {
+      canvasRef.current?.loadImageUrl(page.imageUrl);
+    } else {
+      canvasRef.current?.loadPage(page);
+    }
   };
 
   const handleUpload = (url: string, name: string) => {

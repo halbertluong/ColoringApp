@@ -17,6 +17,7 @@ export interface ColoringPage {
   category: string;
   svgData: string;
   colorSvgData?: string;
+  imageUrl?: string;
 }
 
 export interface Point {

@@ -1,7 +1,7 @@
 import { ColoringPage } from '../types';
 
 // Real Disney/Pixar coloring pages — images in public/images/
-// (downloaded as actual PNG line-art from the web)
+// (downloaded as actual SVG/PNG line-art from the web)
 export const COLORING_PAGES: ColoringPage[] = [
   // Frozen
   { id: 'elsa', name: 'Elsa', category: 'Frozen', svgData: './images/elsa.png' },
@@ -9,8 +9,8 @@ export const COLORING_PAGES: ColoringPage[] = [
   { id: 'olaf', name: 'Olaf', category: 'Frozen', svgData: './images/olaf.png' },
 
   // Classic Disney
-  { id: 'mickey', name: 'Mickey Mouse', category: 'Classic', svgData: './images/mickey.png' },
-  { id: 'minnie', name: 'Minnie Mouse', category: 'Classic', svgData: './images/minnie.png' },
+  { id: 'mickey', name: 'Mickey Mouse', category: 'Classic', svgData: '', imageUrl: './images/mickey-mouse.svg' },
+  { id: 'minnie', name: 'Minnie Mouse', category: 'Classic', svgData: '', imageUrl: './images/minnie-mouse.svg' },
   { id: 'donald', name: 'Donald Duck', category: 'Classic', svgData: './images/donald.png' },
 
   // Princesses
