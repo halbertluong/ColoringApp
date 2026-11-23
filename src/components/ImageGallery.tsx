@@ -14,6 +14,7 @@ function isSvgData(s: string) {
 }
 
 function getThumbnailSrc(page: ColoringPage): string {
+  if (page.imageUrl) return page.imageUrl;
   const src = page.colorSvgData || page.svgData;
   if (!src) return '';
   if (isSvgData(src)) {
